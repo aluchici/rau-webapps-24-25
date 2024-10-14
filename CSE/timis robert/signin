@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web application programming - 1</title>
+</head>
+<body>
+
+<h1>Sign in</h1>
+<form action="landingpage.html" method="get">
+    <input type="email" id="email" placeholder="Email"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <input type="submit" value="Submit"><br>
+</form>
+</body>
+</html>
