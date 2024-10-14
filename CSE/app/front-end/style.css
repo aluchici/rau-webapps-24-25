@@ -75,6 +75,19 @@ select:focus {
     font-size: 16px;
 }
 
+#progress-bar{
+    border-radius: 12px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgb(145, 180, 180);
+    border-radius: 12px;
+}
+progress::-webkit-progress-value {
+    background-color:#e45c3a;
+    border-radius: 12px;
+}
+
 .secondary-button {
     background-color: #ffef5f;
     font-size: 14px;
