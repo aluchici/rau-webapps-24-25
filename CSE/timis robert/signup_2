@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web application programming - 1</title>
+</head>
+<body>
+
+<h1>Sign up</h1>
+<form action="signin.html" method="get">
+    <input type="file" id="id" value="Upload ID"><br>
+    <input type="file" id="face" placeholder="Upload face picture"><br>
+    <input type="submit" value="Submit"><br>
+</form>
+</body>
+</html>
