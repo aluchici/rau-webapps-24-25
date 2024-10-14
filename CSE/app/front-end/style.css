@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-body {
+.background-style {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(to right, #ff7e5f, #feb47b);
     color: #333;
@@ -60,19 +60,31 @@ select:focus {
     outline: none;
 }
 
-button {
-    background-color: #ff7e5f;
+.button-base {
     color: white;
     border: none;
     padding: 15px;
     border-radius: 10px;
     cursor: pointer;
     width: 100%;
-    font-size: 16px;
     transition: background-color 0.3s;
 }
 
-button:hover {
+.primary-button {
+    background-color: #ff7e5f;
+    font-size: 16px;
+}
+
+.secondary-button {
+    background-color: #ffef5f;
+    font-size: 14px;
+}
+
+.secondary-button:hover {
+    background-color: #ff7e5f;
+}
+
+.primary-button:hover {
     background-color: #feb47b;
 }
 
