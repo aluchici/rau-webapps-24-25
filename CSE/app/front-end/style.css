@@ -127,3 +127,28 @@ a:hover {
     }
     
 }
+
+
+progress{
+    background-color: darkslategrey;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    width: 300px;
+    height: 20px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #f8e1cf;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 297px;
+    height: 17px;
+}
+
+progress::-webkit-progress-value{
+    background-color: #f96d4a;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+}
