@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,700;1,100;1,700&display=swap');
+
+body{
+    background-color: beige;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Roboto Mono', monospace;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    padding: 20px;
+    border-radius: 5px;
+    border-width: medium;
+    border-color: darkolivegreen;
+    border-style: solid;
+}
+
+h1{
+    color: darkolivegreen;
+    font-family:'Roboto Mono', monospace;
+}
+
+.facecam-container {
+    width: 300px;
+    height: 200px;
+    border: 5px solid darkolivegreen;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    color: darkolivegreen;
+}
+
+.facecam-container p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.progressbar{
+    margin-bottom: 20px;
+}
+
+.button-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.button{
+    border: 0;
+    line-height: 2;
+    padding: 0 10px;
+    font-size: 1rem;
+    text-align: right;
+    font-family:'Roboto Mono', monospace;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+
+    background-color: darkolivegreen;
+
+    box-shadow:
+        inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+        inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.button:hover{
+    
+    background-color: olivedrab;
+}

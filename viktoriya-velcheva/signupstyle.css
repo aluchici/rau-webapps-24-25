@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,700;1,100;1,700&display=swap');
+
+body{
+    background-color: beige;
+}
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    width: 70%;
+    padding: 20px;
+    border-radius: 5px;
+    border-width: medium;
+    border-color: darkolivegreen;
+    border-style: solid;
+}
+
+h1{
+    color: darkolivegreen;
+    font-family: 'Roboto Mono', monospace;
+    grid-column: 1 / span 2;
+}
+
+label {
+    text-align: left;
+    padding: 10px 0;
+}
+
+input, select {
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.button-container {
+    grid-column: 2;
+    justify-self: end;
+    margin-right: 20px;
+}
+
+.next {
+    border: 0;
+    line-height: 2;
+    padding: 0 10px;
+    font-size: 1.2rem;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    color: #fff;
+    background-color: darkolivegreen;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    box-shadow:
+        inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+        inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.next:hover {
+    background-color: olivedrab;
+}
+
+.progressbar {
+    grid-column: 1 / span 2; /* Прогрес барът заема и двете колони */
+    text-align: center;
+}
+
