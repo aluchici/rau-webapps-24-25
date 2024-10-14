@@ -54,10 +54,10 @@ select {
 
 .prog-bar {
     width: 100%;
-    height: 30px; /* Set a specific height for better visibility */
+    height: 20px; /* Set a specific height for better visibility */
     border: 2px solid #ff7e5f; /* Border color */
     border-radius: 10px; /* Rounded corners */
-    background-color: #e0e0e0; /* Background color */
+    background-color: #ffffff; /* Background color */
     appearance: none; /* Remove default styling */
 }
 
@@ -67,7 +67,7 @@ select {
 }
 
 .prog-bar::-webkit-progress-bar {
-    background-color: #e0e0e0;
+    background-color: #ffffff;
     border-radius: 9px;
 }
 
