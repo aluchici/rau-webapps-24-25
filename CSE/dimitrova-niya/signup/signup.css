@@ -1,0 +1,56 @@
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+  }
+
+  img{
+    width: 60px;
+
+  }
+
+/* body{
+    background-color: rgb(143, 209, 209)
+} */
+
+#signup-header{
+    /* color: rgb(144, 33, 112); */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+
+}
+
+#signup-err-msg{
+  text-align: center;
+  color: red;
+}
+
+#facecam{
+  padding-block: 100px;
+  border: black;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+button {
+    background-color: #04AA6D; 
+    border: none;
+    
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10%;
+  }
+
+  .field{
+    text-align: left;
+  }

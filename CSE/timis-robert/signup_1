@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web application programming - 1</title>
+</head>
+<body>
+
+<h1>Sign up</h1>
+<form action="signup_2.html" method="get">
+    <input type="text" id="fname" placeholder="First Name"><br>
+    <input type="text" id="lname" placeholder="Last Name"><br>
+    <label id="dob">Date of birth</label>
+    <input type="date" id="dob" value="2000-01-01"><br>
+    <select id="gender" placeholder="gender">
+        <option value="" disabled selected>Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Another option">Another option</option>
+    </select><br>
+    <input type="email" id="email" placeholder="Email"><br>
+    <input type="text" id="phone" placeholder="Phone"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <input type="password" id="cpassword" placeholder="Confirm password"><br>
+    <input type="checkbox" id="toc"> I confrim the terms of condition<br>
+    <input type="checkbox" id="privacy"> I confrim the privacy terms<br>
+    <input type="submit" value="Submit"><br>
+</form>
+
+</body>
+</html>

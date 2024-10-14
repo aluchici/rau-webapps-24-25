@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+body {
+    background-color: beige; /* Цвет на фона на страницата */
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Roboto Mono', monospace; /* Шрифт на формата */
+}
+
+.text {
+    font-weight: 700; /* Уплътнен шрифт */
+    text-align: center; /* Центриране на текста */
+    margin: 10px 0; /* Разстояние между редовете */
+}
