@@ -52,6 +52,25 @@ select {
     transition: border-color 0.3s;
 }
 
+.prog-bar {
+    width: 100%;
+    height: 30px; /* Set a specific height for better visibility */
+    border: 2px solid #ff7e5f; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #e0e0e0; /* Background color */
+    appearance: none; /* Remove default styling */
+}
+
+.prog-bar::-webkit-progress-value {
+    background-color: #ff7e5f;
+    border-radius: 9px;
+}
+
+.prog-bar::-webkit-progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 9px;
+}
+
 input[type="text"]:focus,
 input[type="date"]:focus,
 input[type="password"]:focus,
