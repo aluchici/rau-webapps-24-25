@@ -106,7 +106,7 @@ select:focus {
 .primary-button:hover {
     background-color: #feb47b;
 }
-progress{
+/* progress{
     border: 2px solid gray;
     border-radius: 10px;
 }
@@ -117,7 +117,7 @@ progress::-webkit-progress-bar {
 progress::-webkit-progress-value {
     background-color: #feb47b;
     border-radius: 7px;
-}
+} */
 label {
     display: block;
     margin-bottom: 10px;
