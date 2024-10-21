@@ -35,18 +35,41 @@ body.appendChild(button);
 
 // 5. Add event listener to the button
 button.addEventListener("click", function () {
+
   let number = input.value; // Get the value from input
-  
+
   if (number == "") {
     resultPara.innerText = "Please enter a number."; // Handle empty input case
-  } else if (isNaN(number) || !Number.isInteger(number)) {
-    resultPara.innerText = "That is not a valid number."; // Handle non-number or non-int input
-  } else {
+    return;
+  }
+
+  try {
     number = parseInt(number); // Convert the input to an integer
+
+    if (isNaN(number) || !Number.isInteger(number)) {
+      resultPara.innerText = "That is not a valid number."; // Handle non-number or non-int input
+      return;
+    }
+
     if (number % 2 == 0) {
       resultPara.innerText = "The number is even.";
     } else {
       resultPara.innerText = "The number is odd.";
     }
+  } catch {
+    console.log("there was an error")
   }
+
+  // if (number == "") {
+  //   resultPara.innerText = "Please enter a number."; // Handle empty input case
+  // } else if (isNaN(number) || !Number.isInteger(number)) {
+  //   resultPara.innerText = "That is not a valid number."; // Handle non-number or non-int input
+  // } else {
+  //   number = parseInt(number); // Convert the input to an integer
+  //   if (number % 2 == 0) {
+  //     resultPara.innerText = "The number is even.";
+  //   } else {
+  //     resultPara.innerText = "The number is odd.";
+  //   }
+  // }
 });

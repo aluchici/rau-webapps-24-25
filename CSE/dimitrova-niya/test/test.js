@@ -10,8 +10,6 @@ let input = document.createElement('input');
 input.type = 'numeric';
 document.body.appendChild(input);
 
-
-
 let btn = document.createElement('button');
 btn.textContent = 'Click me';
 btn.addEventListener('click', oddOrEven)
