@@ -34,7 +34,9 @@ button.innerText = "Check if Odd or Even";
 body.appendChild(button);
 
 // 5. Add event listener to the button
-button.addEventListener("click", function () {
+button.addEventListener("click", checkifEven);
+
+function checkifEven(){
   let number = input.value; // Get the value from input
   
   if (number == "") {
@@ -49,4 +51,4 @@ button.addEventListener("click", function () {
       resultPara.innerText = "The number is odd.";
     }
   }
-});
+}
