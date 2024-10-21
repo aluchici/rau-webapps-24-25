@@ -22,3 +22,31 @@ body.appendChild(h1);
 let input = document.createElement("input");
 input.placeholder = "Insert a number";
 body.appendChild(input);
+
+// 3. Add the paragraph to display results above the button
+let resultPara = document.createElement("p");
+resultPara.innerText = ""; // Start with an empty paragraph
+body.appendChild(resultPara);
+
+// 4. Create the button
+let button = document.createElement("button");
+button.innerText = "Check if Odd or Even";
+body.appendChild(button);
+
+// 5. Add event listener to the button
+button.addEventListener("click", function () {
+  let number = input.value; // Get the value from input
+  
+  if (number == "") {
+    resultPara.innerText = "Please enter a number."; // Handle empty input case
+  } else if (isNaN(number) || !Number.isInteger(number)) {
+    resultPara.innerText = "That is not a valid number."; // Handle non-number or non-int input
+  } else {
+    number = parseInt(number); // Convert the input to an integer
+    if (number % 2 == 0) {
+      resultPara.innerText = "The number is even.";
+    } else {
+      resultPara.innerText = "The number is odd.";
+    }
+  }
+});
