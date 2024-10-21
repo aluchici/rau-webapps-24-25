@@ -3,30 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Webcam Selfie</title>
+    <style>
+        video, canvas, img {
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid black;
+        }
+        #canvas {
+            display: none; /* Hide canvas initially */
+        }
+        #selfie {
+            display: none; /* Hide selfie initially */
+        }
+    </style>
 </head>
-<body class="background-style">
-    <form id="upload_id" action="javascript:signupstep2()">
-
-    
-        <h1>Sign up</h1><br>
-
-        <h2>
-            <progress class="prog-bar" id="progress-bar" value="100" max="100"></progress>
-        </h2>
-        <h2>Take a Selfie</h2>
-        <video id="video" autoplay></video>
-        <button type="button" id="snap">Take a Selfie</button>
-        <canvas id="canvas"></canvas>
-        <img id="selfie" alt="Selfie taken" />
-        <button id="retake" style="display:none;" type="button">Retake Selfie</button>
-        <br><br>
-
-        <h2>Upload ID</h2>
-        <input type="file" id="upload_id" name="file" accept="image/*"><br><br><br>
-        <button type="upload" class="button-base primary-button">Submit</button>   
-    </form>
+<body>
+    <h1>Take a Selfie</h1>
+    <video id="video" autoplay></video>
+    <button id="snap">Take a Selfie</button>
+    <canvas id="canvas"></canvas>
+    <img id="selfie" alt="Selfie taken" />
+    <button id="retake" style="display:none;">Retake Selfie</button>
 
     <script>
         const video = document.getElementById('video');
@@ -43,7 +41,6 @@
             })
             .catch(err => {
                 console.error("Error accessing webcam: " + err);
-                alert("Could not access the webcam. Please check your camera settings.");
             });
 
         // Capture the selfie
