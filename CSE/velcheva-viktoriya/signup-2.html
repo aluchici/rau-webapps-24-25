@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="background-style">
+    <form id="step1form">
+        <h1>Take a selfie</h1><br>
+        <h2>
+            <progress class="prog-bar" id="progress-bar" value="100" max="100"></progress>
+        </h2><br>
+        <div class="video-container">
+            <video id="video" autoplay></video>
+            <div id="overlay" class="overlay">
+                <button id="startCameraButton" class="button-overlay">Access camera</button>
+            </div>
+        </div>
+
+        <button id="takePhotoButton" class="button-base primary-button" style="display: none;">Take a picture</button><br><br>
+
+        <h1>Upload ID</h1><br>
+        <label for="upload_id" id="fileLabel" class="custom-file-label">Choose a file</label>
+        <input type="file" id="upload_id" name="file" accept="image/*" class="file" onchange="updateFileName()"><br><br>
+        
+        <canvas id="canvas" style="display:none;"></canvas>
+    </form>
+    <script src="signup.js"></script>
+</body>
+</html>

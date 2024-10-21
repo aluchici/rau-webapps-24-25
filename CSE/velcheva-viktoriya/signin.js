@@ -8,7 +8,7 @@ const USERS = [
         "password": "12345678901"
     },
     {
-        "email": "a@b.c",
+        "email": "p@b.c",
         "password": "12345678902"
     },
     {
@@ -23,7 +23,6 @@ const USERS = [
 //4. If match => go to home else go to sing up fail
 
 function signin() {
-
     const errorParagraph=document.getElementById("errorMessage");
     errorParagraph.innerText="";
 

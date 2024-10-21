@@ -5,6 +5,13 @@
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
 .background-style {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(to right, #ff7e5f, #feb47b);
@@ -24,6 +31,7 @@ form {
     padding: 30px;
     width: 100%;
     max-width: 400px;
+    margin: auto;
 }
 
 h2 {
@@ -128,6 +136,92 @@ a:hover {
     text-decoration: underline;
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    background-color: rgba(128, 128, 128, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.video-container {
+    position: relative;
+    display: flex;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    background-color: black;
+    margin-bottom: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+
+.button-overlay {
+    background-color: rgba(255, 126, 95, 0.8);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 2;
+}
+
+.button-overlay:hover {
+    background-color: rgba(255, 126, 95, 1);
+}
+
+.file {
+    display: inline-block;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #ff7e5f;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+
+.file:hover {
+    background-color: #feb47b;
+}
+
+.file[type="file"] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-file-label {
+    background-color: #ff7e5f;
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.custom-file-label:hover {
+    background-color: #feb47b;
+}
+
 @media (max-width: 480px) {
     form {
         padding: 20px;
@@ -144,5 +238,4 @@ a:hover {
     button {
         font-size: 14px;
     }
-    
 }
