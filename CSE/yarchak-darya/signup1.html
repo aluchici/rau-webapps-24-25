@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class = "background-style">
+    <form action="#">
+    <form action="signup2.html" method="post">
+        <h1>Create your account</h1>
+        <h2>
+            <!--Progress bar(light blue)-->
+            <progress class ="progress" id = "progress" name = "progress" value = "30" max ="100"> 
+            </progress>
+        </h2><br><br>
+
+        <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required><br>
+        <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required><br><br>
+        
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <select id="gender" name="gender" required><br><br>
+            <option value="" disabled selected hidden>Select your gender</option>
+            <option value="Male"required>Male</option>
+            <option value="Female" required>Female</option>
+            <option value="Other"required>Other</option>
+        
+        </select><br><br>
+
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required><br><br>
+        
+        <input type="password" id="password" name="password" placeholder="Create a password" required><br><br>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required><br><br>
+
+        <label for="terms">
+            <input type="checkbox" id="terms" name="terms" required>
+           <b>I accept the</b>  <href="#"> <b>terms and conditions</b>
+        </label> <br>
+
+        <label for="privacy">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            <b>I agree to the</b> <href="#"><b>privacy policy</b> <b>and allow my data to be processed.</b>
+        </label><br><br>
+
+        <button type="submit" class="button-base primary-button"><b>Submit</b></button> <br><br></br>
+
+        
+
+            If you already have an account, please sign in <a href="#">here.</a>
+    </form>
+</body>
+</html>
