@@ -1,4 +1,3 @@
-/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
@@ -54,11 +53,11 @@ select {
 
 .prog-bar {
     width: 100%;
-    height: 20px; /* Set a specific height for better visibility */
-    border: 2px solid #ff7e5f; /* Border color */
-    border-radius: 10px; /* Rounded corners */
-    background-color: #ffffff; /* Background color */
-    appearance: none; /* Remove default styling */
+    height: 20px;
+    border: 2px solid #ff7e5f;
+    border-radius: 10px;
+    background-color: #ffffff;
+    appearance: none;
 }
 
 .prog-bar::-webkit-progress-value {
@@ -113,10 +112,10 @@ label {
 }
 
 #failed_message {
-    display: block;            /* Make the label a block element */
-    margin: 0 auto;          /* Center it horizontally */
-    text-align: center;      /* Center the text inside the label */
-    width: fit-content;      /* Adjust width to fit the content */
+    display: block;  
+    margin: 0 auto;
+    text-align: center;
+    width: fit-content;
 }
 
 a {
@@ -128,16 +127,22 @@ a:hover {
     text-decoration: underline;
 }
 
-video, canvas, img {
+video, canvas, img{
     width: 100%;
     max-width: 400px;
-    border: 1px solid black;
+    height: auto;
+    border: 1px solid #ff7e5f;
+    border-radius: 15px;
+    background-color: transparent;
+}
+#video {
+    display: none;
 }
 #canvas {
-    display: none; /* Hide canvas initially */
+    display: none;
 }
 #selfie {
-    display: none; /* Hide selfie initially */
+    display: none;
 }
 
 @media (max-width: 480px) {
@@ -157,4 +162,42 @@ video, canvas, img {
         font-size: 14px;
     }
     
+}
+
+.styled-file {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #ff7e5f;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.styled-file:focus {
+    border-color: #feb47b;
+    outline: none;
+}
+
+.styled-file::-webkit-file-upload-button {
+    display: none;
+}
+
+.styled-file::before {
+    content: 'Choose File';
+    display: inline-block;
+    background: #ff7e5f; 
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px; 
+    text-align: center;
+    cursor: pointer; 
+    transition: background-color 0.3s;
+}
+
+.styled-file:hover::before {
+    background: #feb47b; 
 }
