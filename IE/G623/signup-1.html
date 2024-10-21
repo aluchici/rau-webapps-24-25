@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="g623.css">
 </head>
 <body>
-    <p class="paragraf titlu">Sign up</p>
-
     <form>
+        <h1>Sign up</h1><br>
+
+        <h2>
+            <progress value="50" max="100"></progress>
+        </h2>
         <input type="text" placeholder="First name"><br>
         <input type="text" placeholder="Last name"><br>
         <input type="text" placeholder="CNP"><br>
@@ -17,11 +20,17 @@
         <input type="text" placeholder="Company"><br>
         <input type="date"><br>
         <input type="text" placeholder="Address"><br>
+        <select>
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Other">Other</option>
+        </select><br>
         <input type="email" placeholder="Email"><br>
         <input type="password" placeholder="Password"><br>
         <input type="password" placeholder="Confirm password"><br>
-        <input type="checkbox"><br>
-        
+        <input type="checkbox"> <span>I agree with T&C</span><br>
+        <input type="checkbox"> <span>I agree with Privacy Policy</span><br>
+
         <button>Next</button><br>
         <p>If you already have an account, click <a href="#">here</a> to sign in.</p>
     </form>
