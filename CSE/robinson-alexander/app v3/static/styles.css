@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background-style {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: auto;
+}
+
+form {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 26px;
+    text-align: center;
+    color: #ff7e5f;
+}
+
+h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: center;
+    color: #666;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #ff7e5f;
+    border-radius: 10px;
+    transition: border-color 0.3s;
+}
+
+.prog-bar {
+    width: 100%;
+    height: 20px;
+    border: 2px solid #ff7e5f;
+    border-radius: 10px;
+    background-color: #ffffff;
+    appearance: none;
+}
+
+.prog-bar::-webkit-progress-value {
+    background-color: #ff7e5f;
+    border-radius: 9px;
+}
+
+.prog-bar::-webkit-progress-bar {
+    background-color: #ffffff;
+    border-radius: 9px;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #feb47b;
+    outline: none;
+}
+
+.button-base {
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.primary-button {
+    background-color: #ff7e5f;
+    font-size: 16px;
+}
+
+.secondary-button {
+    background-color: #ffef5f;
+    font-size: 14px;
+}
+
+.secondary-button:hover {
+    background-color: #ff7e5f;
+}
+
+.primary-button:hover {
+    background-color: #feb47b;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#failed_message {
+    display: block;  
+    margin: 0 auto;
+    text-align: center;
+    width: fit-content;
+}
+
+a {
+    color: #ff7e5f;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+video, canvas, img{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border: 1px solid #ff7e5f;
+    border-radius: 15px;
+    background-color: transparent;
+}
+#video {
+    display: none;
+}
+#canvas {
+    display: none;
+}
+#selfie {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+    
+}
+
+.styled-file {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #ff7e5f;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.styled-file:focus {
+    border-color: #feb47b;
+    outline: none;
+}
+
+.styled-file::-webkit-file-upload-button {
+    display: none;
+}
+
+.styled-file::before {
+    content: 'Choose File';
+    display: inline-block;
+    background: #ff7e5f; 
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px; 
+    text-align: center;
+    cursor: pointer; 
+    transition: background-color 0.3s;
+}
+
+.styled-file:hover::before {
+    background: #feb47b; 
+}
