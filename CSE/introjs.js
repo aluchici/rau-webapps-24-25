@@ -55,5 +55,7 @@ function checkIfEven() {
     } else {
       resultPara.innerText = "The number is odd.";
     }
+  } catch {
+    console.log('error');
   }
-});
+};

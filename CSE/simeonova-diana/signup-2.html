@@ -10,11 +10,18 @@
     <form id="step2Form">
         <h1>Upload ID</h1><br>
         <h2>
-            <progress id="progress-bar" value="100" max="100"></progress>
+            <progress class="prog-bar" id="progress-bar" value="100" max="100"></progress>
         </h2><br>
         <input type="file" id="upload_id" name="file" accept="image/*"><br><br><br>
+        <div>
+            <video id="video"></video>
+        </div>
+        <br />
+        <button id="but" autoplay>
+            Open WebCam
+        </button>
         <button type="upload" class="button-base primary-button">Submit</button>   
     </form>
-    
+    <script src="signup.js"></script>
 </body>
 </html>
