@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function signupStep2() {
     const startCameraButton = document.getElementById('startCameraButton');
-    const video = document.getElementById('video'); // Moved outside of event listener for scope
+    const video = document.getElementById('video');
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     const takePhotoButton = document.getElementById('takePhotoButton');
