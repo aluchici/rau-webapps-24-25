@@ -10,15 +10,15 @@ if (!user) {
         gender: undefined,
         phone: undefined
     };
-}else{
+} else {
     user = JSON.parse();
 }
 
 
 
 const form = document.getElementById('step1form');
-if(form){
-form.addEventListener('submit', signupStep1);
+if (form) {
+    form.addEventListener('submit', signupStep1);
 }
 
 
@@ -66,6 +66,10 @@ function signupStep1(e) {
 
     localStorage.setItem('user', JSON.stringify(user));
 
-    window.location.replace('signup-2.html');
+    //window.location.replace('signup-2.html');
+
+    
+
+   
 
 }

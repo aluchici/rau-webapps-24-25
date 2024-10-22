@@ -7,14 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="background-style">
-    <form id="step2Form">
+    <form id="step1form">
         <h1>Upload ID</h1><br>
         <h2>
-            <progress id="progress-bar" value="100" max="100"></progress>
+            <progress class="prog-bar" id="progress-bar" value="100" max="100"></progress>
         </h2><br>
+        <div class="video-container">
+            <video id="video" autoplay></video>
+            <div id="overlay" class="overlay">
+                <button id="startCameraButton" class="button-overlay">Access camera</button>
+            </div>
+        </div><br><br>
         <input type="file" id="upload_id" name="file" accept="image/*"><br><br><br>
-        <button type="upload" class="button-base primary-button">Submit</button>   
+        
+        <button id="takePhotoButton" class="button-base primary-button" style="display: none;">Take a picture</button>
+        <canvas id="canvas" style="display:none;"></canvas>
     </form>
-    <script src="signup.js"></script>
+    <script src="../../dimitrova-niya/startCamera.js"></script>
 </body>
 </html>
