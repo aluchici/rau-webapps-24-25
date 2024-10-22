@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+import json
+from flask import Flask, render_template, request, Response
 from datetime import datetime
   
 import os
@@ -38,8 +39,21 @@ def signup2():
 
 @app.route("/signup-test")
 def signup_test():
+    print(request)
+    body = request.json
+
+    keys = list(body.keys())
+    if "email" not in keys:
+        return Response(json.dumps({"error" : "Invalid request. Email not sent"}),
+                        status=400,
+                        headers={"Content-Type":"application/json"})
     
-    return ""
+    if "password" not in keys:
+        return Response(json.dumps({"error" : "Invalid request. Password not sent"}),
+                        status=400,
+                        headers={"Content-Type":"application/json"})
+    
+    return Response({}, status=200, headers={"Content-Type":"application/json"})
 
 
 if __name__ == "__main__": 
