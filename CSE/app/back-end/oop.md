@@ -21,8 +21,3 @@ User
 > add()
 > send_message()
 > is_password_valid()
-
-@app.route("add-friend")
-def add_friend():
-    user = User()
-    user.add()
