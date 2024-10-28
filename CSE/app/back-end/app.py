@@ -2,6 +2,8 @@ from datetime import datetime
 import json
 from flask import Flask, request, Response
 
+from authorize import create_account
+
 app = Flask("app")
 
 @app.route("/", methods=["GET"])
@@ -19,7 +21,6 @@ def version():
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
     # 1. receive data
-    print(request)
     body = request.json
 
     # 2. validate data
@@ -37,6 +38,12 @@ def signin():
     # 3. check against the stored data
     # 4. return a response based on the result obtained at 3. 
     return Response({}, status=200, headers={"Content-Type": "application/json"})
+
+@app.route("/signup", methods=["POST"])
+def signup():
+    create_account()
+    return ""
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
