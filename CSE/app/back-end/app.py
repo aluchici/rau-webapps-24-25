@@ -38,5 +38,10 @@ def signin():
     # 4. return a response based on the result obtained at 3. 
     return Response({}, status=200, headers={"Content-Type": "application/json"})
 
+# @app.route("/signup",methods=["POST"])
+# def signup():
+#     create_account()
+#     return ""
+
 if __name__ == "__main__":
     app.run(debug=True, port=5001)

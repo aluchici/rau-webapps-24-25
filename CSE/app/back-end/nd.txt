@@ -1,0 +1,3 @@
+"\n        INSERT INTO users (first_name,\n        last_name,\n
+        dob,\n        gender,\n        phone,\n        email,\n        password,\n        created_at,\n        updated_at)\n        \n        VALUES ('malcho',\n        'malchov',\n        <built-in method timestamp of datetime.datetime object at 0x0000026FCD756820>, \n        0,\n        '+63276726',\n        'malcho@gmail.com',\n        '12345678',\n        <built-in method timestamp of datetime.datetime object at 0x0000026FCF9636C0>,\n        
+<built-in method timestamp of datetime.datetime object at 0x0000026FCF8FDB60>);\n        "

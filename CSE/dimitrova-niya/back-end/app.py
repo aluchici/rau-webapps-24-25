@@ -36,6 +36,13 @@ def signin():
     
     return Response({}, {"Content-Type": "application/json"}, 200)
 
+@app.route("/signup", methods=["POST"])
+def signup():
+    #TODO: implement signup logic
+    return ""
+
 if __name__ == "__main__":
     app.run(port=5001)  
+    
+    
     
