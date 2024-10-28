@@ -57,20 +57,6 @@ button.addEventListener("click", function () {
       resultPara.innerText = "The number is odd.";
     }
   } catch {
-    console.log("there was an error")
+    console.log('error');
   }
-
-  // if (number == "") {
-  //   resultPara.innerText = "Please enter a number."; // Handle empty input case
-  // } else if (isNaN(number) || !Number.isInteger(number)) {
-  //   resultPara.innerText = "That is not a valid number."; // Handle non-number or non-int input
-  // } else {
-  //   number = parseInt(number); // Convert the input to an integer
-  //   if (number % 2 == 0) {
-  //     resultPara.innerText = "The number is even.";
-  //   } else {
-  //     resultPara.innerText = "The number is odd.";
-  //   }
-  // }
-});
-}
+};
