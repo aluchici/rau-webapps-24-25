@@ -1,0 +1,77 @@
+body{
+    background:linear-gradient(rgb(212, 244, 212), rgb(250, 250, 46));
+}
+
+
+form {
+   
+    background:linear-gradient(rgb(212, 244, 212), rgb(250, 250, 46));
+    padding-left: 40%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+
+p {
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 140%;
+    color: black;
+    font-weight: 500;
+    margin-left: -10%;
+}
+h1{
+    font-family:'Source Code Pro', monospace;
+    font-size:60px;
+    font-weight: 500;
+    margin-top: -40px;
+    margin-bottom: -30px;
+    margin-left: 2%;
+}
+
+.paragraf {
+    font-size: 30px;
+    color: green;
+    font-weight: 500;
+}
+
+.titlu {
+    font-size: 50px;
+    color: blue;
+}
+
+select,
+input[type="text"],
+input[type="password"],
+input[type="phone"],
+input[type="email"],
+input[type="date"]
+{
+    color:green;
+    background-color: ghostwhite;
+    border-color: white;
+    border-radius: 7px;
+    outline: none;
+    margin-bottom: 10px;
+    width: 26%;
+    height: 22px;
+}
+button
+{
+    color:green;
+    width: 26%;
+    height: 22px;
+    margin-bottom: 0.2%;
+    margin-top: 2%;
+    border-radius: 7px;
+
+}
+
+select:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="phone"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus {
+    border-color: orange;
+    outline: none;
+}
