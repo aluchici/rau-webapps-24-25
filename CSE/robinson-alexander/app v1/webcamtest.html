@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Selfie</title>
+    <style>
+        video, canvas, img {
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid black;
+        }
+        #canvas {
+            display: none; /* Hide canvas initially */
+        }
+        #selfie {
+            display: none; /* Hide selfie initially */
+        }
+    </style>
+</head>
+<body>
+    <h1>Take a Selfie</h1>
+    <video id="video" autoplay></video>
+    <button id="snap">Take a Selfie</button>
+    <canvas id="canvas"></canvas>
+    <img id="selfie" alt="Selfie taken" />
+    <button id="retake" style="display:none;">Retake Selfie</button>
+
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        const snapButton = document.getElementById('snap');
+        const selfieImg = document.getElementById('selfie');
+        const retakeButton = document.getElementById('retake');
+
+        // Get access to the camera
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                console.error("Error accessing webcam: " + err);
+            });
+
+        // Capture the selfie
+        snapButton.addEventListener('click', () => {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            selfieImg.src = canvas.toDataURL();
+            video.style.display = 'none'; // Hide video
+            canvas.style.display = 'none'; // Hide canvas
+            selfieImg.style.display = 'block'; // Show selfie
+            retakeButton.style.display = 'inline'; // Show retake button
+        });
+
+        // Retake the selfie
+        retakeButton.addEventListener('click', () => {
+            video.style.display = 'block'; // Show video
+            selfieImg.style.display = 'none'; // Hide selfie
+            retakeButton.style.display = 'none'; // Hide retake button
+        });
+    </script>
+</body>
+</html>
