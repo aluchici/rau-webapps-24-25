@@ -10,12 +10,12 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #6dd5ed, #213bb0);
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
 }
 
-.container {
+.signin-container {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -36,11 +36,8 @@ label {
     text-align: left;
 }
 
-input[type="text"],
 input[type="email"],
-input[type="password"],
-input[type="date"],
-input[type="tel"] {
+input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -49,48 +46,21 @@ input[type="tel"] {
     transition: border-color 0.3s, background-color 0.3s;
 }
 
-input[type="text"]:hover,
 input[type="email"]:hover,
-input[type="password"]:hover,
-input[type="date"]:hover,
-input[type="tel"]:hover {
+input[type="password"]:hover {
     background-color: #f1f9ff;
 }
 
-input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="date"]:focus,
-input[type="tel"]:focus {
+input[type="password"]:focus {
     border-color: #4a90e2;
     background-color: #e6f3ff;
     outline: none;
 }
 
-.progress-container {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-    text-align: left;
-}
-
-progress {
-    width: 100%;
-    height: 20px;
-    margin-left: 10px;
-}
-
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-}
-
 button {
     width: 100%;
     padding: 10px;
-    background-color: #4a90e2;
-    color: white;
     border: none;
     border-radius: 4px;
     font-size: 16px;
@@ -98,22 +68,21 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
+.signin-btn {
+    background-color: #4a90e2;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.signin-btn:hover {
     background-color: #357ab9;
 }
 
-.login-link {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #666;
-}
-
-.login-link a {
+.register-btn {
+    background-color: #f1f1f1;
     color: #4a90e2;
-    text-decoration: none;
-    font-weight: bold;
 }
 
-.login-link a:hover {
-    text-decoration: underline;
+.register-btn:hover {
+    background-color: #e0e0e0;
 }
