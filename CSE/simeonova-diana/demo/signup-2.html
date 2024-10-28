@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="background-style">
-    <form id="step1form">
+    <form id="step2Form">
         <h1>Upload ID</h1><br>
         <h2>
             <progress class="prog-bar" id="progress-bar" value="100" max="100"></progress>
         </h2><br>
+        <input class="button-base" type="file" id="upload_id" name="file" accept="image/*"><br><br><br>
         <div class="video-container">
             <video id="video" autoplay></video>
             <div id="overlay" class="overlay">
-                <button id="startCameraButton" class="button-overlay">Access camera</button>
+                <button id="startCameraButton" class="button-overlay" onclick="signupStep2()">Access camera</button>
             </div>
         </div><br><br>
-        <input type="file" id="upload_id" name="file" accept="image/*"><br><br><br>
         
         <button id="takePhotoButton" class="button-base primary-button" style="display: none;">Take a picture</button>
         <canvas id="canvas" style="display:none;"></canvas>
     </form>
-    <script src="../../dimitrova-niya/startCamera.js"></script>
+    <script src="signup.js"></script>
 </body>
+
 </html>
