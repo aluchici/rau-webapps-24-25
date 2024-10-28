@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <label for="nume">Nume</label>
+            <input type="text" id="nume" name="nume" required>
+
+            <label for="prenume">Prenume</label>
+            <input type="text" id="prenume" name="prenume" required>
+
+            <label for="cnp">CNP</label>
+            <input type="text" id="cnp" name="cnp" required>
+
+            <label for="organizatie">Organizatie</label>
+            <input type="text" id="organizatie" name="organizatie" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="parola">Parola</label>
+            <input type="password" id="parola" name="parola" required>
+
+            <label for="confirma-parola">Confirma Parola</label>
+            <input type="password" id="confirma-parola" name="confirma-parola" required>
+
+            <label for="data-nasterii">Data Nasterii</label>
+            <input type="date" id="data-nasterii" name="data-nasterii" required>
+
+            <label for="adresa">Adresa</label>
+            <input type="text" id="adresa" name="adresa" required>
+
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" required>
+
+            <div class="progress-container">
+                <label for="progress">Progress:</label>
+                <progress id="progress" value="5" max="10"></progress>
+            </div>
+
+            <label for="terms">
+                <input  type="checkbox" id="terms" name="terms" required> I agree to Terms and Conditions.
+            </label>
+    
+            <label for="privacy">
+                <input  type="checkbox" id="privacy" name="privacy" required> I trust you with my data.
+            </label><br><br>
+
+            <div class="button-container">
+                <button type="button" class="next-btn">Next</button>
+            </div>
+        </form>
+        <p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+
+</body>
+</html>
