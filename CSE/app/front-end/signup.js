@@ -1,55 +1,52 @@
-
-
-let user = window.localStorage.getItem("user");
+let user = window.localStorage.getItem('user');
 if (!user) {
     user = {
         firstName: undefined,
         lastName: undefined,
         email: undefined,
         password: undefined,
+        phone: undefined,
         dob: undefined,
-        gender: undefined,
-        phone: undefined
-    };
+        gender: undefined
+    }
 } else {
     user = JSON.parse(user);
 }
-
 function signupStep1() {
-    // Form validation.
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirm_password");
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirm_password');
     if (password.value == "" || (password.value != confirmPassword.value)) {
-        console.log("Passwords are different.");
+        console.log("passwords are different");
         return;
     }
 
-    const terms = document.getElementById("terms");
+    const terms = document.getElementById('terms');
     if (!terms.checked) {
-        console.log("Terms not checked");
+        console.log("terms policies must be agreed upon");
         return;
     }
-
-    const privacy = document.getElementById("privacy");
+    const privacy = document.getElementById('privacy');
     if (!privacy.checked) {
-        console.log("Privacy not checked");
+        console.log("privacy policies must be agreed upon");
         return;
     }
 
-    // Form is valid, we can move to next step 
-    user.firstName = document.getElementById("firstname").value;
-    user.lastName = document.getElementById("lastname").value;
-    user.phone = document.getElementById("phone").value;
-    user.email = document.getElementById("email").value;
-    user.password = password.value;
+    user.firstName = document.getElementById('firstname').value;
+    user.lastName = document.getElementById('lastname').value;
+    user.email = document.getElementById('email').value;
+    user.phone = document.getElementById('phone').value;
 
-    const dob = document.getElementById("dob");
-    const gender = document.getElementById("gender");
+    const dob = document.getElementById('dob');
+    const gender = document.getElementById('gender');
     user.dob = dob.value;
     user.gender = gender.value;
 
-    window.localStorage.setItem("user", JSON.stringify(user));
+    window.localStorage.setItem('user', JSON.stringify(user));
     window.location.replace("signup-2.html");
+}
+
+function signupStep2() {
+   
 }
 
 const form = document.querySelector('form');

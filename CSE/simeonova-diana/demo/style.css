@@ -52,17 +52,6 @@ select {
     transition: border-color 0.3s;
 }
 
-video {
-    width: 350px;
-    height: 200px;
-    background-color: black;
-    margin-bottom: 20px;
-    border: 2px solid #333;
-    border-radius: 10px;
-}
-
-
-
 .prog-bar {
     width: 100%;
     height: 20px; /* Set a specific height for better visibility */
@@ -103,19 +92,6 @@ select:focus {
 .primary-button {
     background-color: #ff7e5f;
     font-size: 16px;
-}
-
-#progress-bar{
-    border-radius: 12px;
-}
-
-progress::-webkit-progress-bar {
-    background-color: rgb(145, 180, 180);
-    border-radius: 12px;
-}
-progress::-webkit-progress-value {
-    background-color:#e45c3a;
-    border-radius: 12px;
 }
 
 .secondary-button {
@@ -180,4 +156,47 @@ a:hover {
         font-size: 14px;
     }
     
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 89%;
+    background-color: rgba(128, 128, 128, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.video-container {
+    position: relative;
+    display: inline-block;
+}
+
+video {
+    width: 340px;
+    height: 200px;
+    background-color: black;
+    margin-bottom: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+
+.button-overlay {
+    background-color: rgba(255, 126, 95, 0.8);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 2;
+}
+
+.button-overlay:hover {
+    background-color: rgba(255, 126, 95, 1);
 }

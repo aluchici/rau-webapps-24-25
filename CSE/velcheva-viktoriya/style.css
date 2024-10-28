@@ -5,7 +5,14 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.background-style {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(to right, #ff7e5f, #feb47b);
     color: #333;
@@ -24,6 +31,7 @@ form {
     padding: 30px;
     width: 100%;
     max-width: 400px;
+    margin: auto;
 }
 
 h2 {
@@ -51,17 +59,6 @@ select {
     border-radius: 10px;
     transition: border-color 0.3s;
 }
-
-video {
-    width: 350px;
-    height: 200px;
-    background-color: black;
-    margin-bottom: 20px;
-    border: 2px solid #333;
-    border-radius: 10px;
-}
-
-
 
 .prog-bar {
     width: 100%;
@@ -105,19 +102,6 @@ select:focus {
     font-size: 16px;
 }
 
-#progress-bar{
-    border-radius: 12px;
-}
-
-progress::-webkit-progress-bar {
-    background-color: rgb(145, 180, 180);
-    border-radius: 12px;
-}
-progress::-webkit-progress-value {
-    background-color:#e45c3a;
-    border-radius: 12px;
-}
-
 .secondary-button {
     background-color: #ffef5f;
     font-size: 14px;
@@ -130,28 +114,17 @@ progress::-webkit-progress-value {
 .primary-button:hover {
     background-color: #feb47b;
 }
-/* progress{
-    border: 2px solid gray;
-    border-radius: 10px;
-}
-progress::-webkit-progress-bar {
-    background-color: aliceblue;
-    border-radius: 10px;
-}
-progress::-webkit-progress-value {
-    background-color: #feb47b;
-    border-radius: 7px;
-} */
+
 label {
     display: block;
     margin-bottom: 10px;
 }
 
 #failed_message {
-    display: block;           
-    margin: 0 auto;      
-    text-align: center;   
-    width: fit-content;  
+    display: block;            /* Make the label a block element */
+    margin: 0 auto;          /* Center it horizontally */
+    text-align: center;      /* Center the text inside the label */
+    width: fit-content;      /* Adjust width to fit the content */
 }
 
 a {
@@ -161,6 +134,92 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    background-color: rgba(128, 128, 128, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.video-container {
+    position: relative;
+    display: flex;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    background-color: black;
+    margin-bottom: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+
+.button-overlay {
+    background-color: rgba(255, 126, 95, 0.8);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 2;
+}
+
+.button-overlay:hover {
+    background-color: rgba(255, 126, 95, 1);
+}
+
+.file {
+    display: inline-block;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #ff7e5f;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+
+.file:hover {
+    background-color: #feb47b;
+}
+
+.file[type="file"] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-file-label {
+    background-color: #ff7e5f;
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.custom-file-label:hover {
+    background-color: #feb47b;
 }
 
 @media (max-width: 480px) {
@@ -179,5 +238,4 @@ a:hover {
     button {
         font-size: 14px;
     }
-    
 }

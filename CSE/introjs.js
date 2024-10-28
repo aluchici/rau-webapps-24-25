@@ -34,20 +34,21 @@ button.innerText = "Check if Odd or Even";
 body.appendChild(button);
 
 // 5. Add event listener to the button
-button.addEventListener("click", checkIfEven);
+button.addEventListener("click", function () {
 
-function checkIfEven() {
   let number = input.value; // Get the value from input
+
   if (number == "") {
-     resultPara.innerText = "Please enter a number."; // Handle empty input case
-     return;
+    resultPara.innerText = "Please enter a number."; // Handle empty input case
+    return;
   }
-  
+
   try {
-    number = parseInt(number);
-    if (isNaN(number)) {
-      resultPara.innerText = "That is not a valid number.";
-      return
+    number = parseInt(number); // Convert the input to an integer
+
+    if (isNaN(number) || !Number.isInteger(number)) {
+      resultPara.innerText = "That is not a valid number."; // Handle non-number or non-int input
+      return;
     }
 
     if (number % 2 == 0) {
@@ -56,6 +57,6 @@ function checkIfEven() {
       resultPara.innerText = "The number is odd.";
     }
   } catch {
-    console.log("There was an error");
+    console.log('error');
   }
-}
+};
