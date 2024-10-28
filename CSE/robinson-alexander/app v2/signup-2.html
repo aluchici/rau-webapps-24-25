@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="background-style">
+    <form id="upload_id" action="javascript:signupstep2()">
+        <h1>Sign up</h1><br>
+        <h2>
+            <progress class="prog-bar" id="progress-bar" value="100" max="100"></progress>
+        </h2>
+
+        <h2>Take a Selfie</h2>
+        <p class="custom-paragraph" id="webcam-message">*Please enable your webcam to take a selfie.</p>
+        <video id="video" autoplay style="display:none;"></video>
+        <br><button class="button-base primary-button" type="button" id="snap" style="display:none;">Take a Selfie</button>
+        <canvas id="canvas"></canvas>
+        <img id="selfie" alt="Selfie taken" />
+        <br><button class="button-base primary-button" id="retake" style="display:none;" type="button">Retake Selfie</button>
+        <br><br>
+
+        <h2>Upload ID</h2>
+        <input type="file" id="upload_id" class="styled-file" name="file" accept="image/*"><br><br>
+        <button type="upload" class="button-base primary-button">Submit</button>   
+    </form>
+
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        const snapButton = document.getElementById('snap');
+        const selfieImg = document.getElementById('selfie');
+        const retakeButton = document.getElementById('retake');
+        const webcamMessage = document.getElementById('webcam-message');
+
+        let stream = null;
+
+        function stopWebcam() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            } 
+        }
+
+        function startWebcam() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(mediaStream => {
+                    stream = mediaStream;
+                    video.srcObject = mediaStream;
+
+                    video.addEventListener('loadedmetadata', () => {
+                        canvas.width = video.videoWidth;
+                        canvas.height = video.videoHeight;
+
+                        video.style.display = 'block';
+                        snapButton.style.display = 'inline';
+                        webcamMessage.style.display = 'none';
+                    });
+                })
+                .catch(err => {
+                    console.error("Error accessing webcam: " + err);
+                    alert("Could not access the webcam. Please check your camera settings.");
+                });
+        }
+
+        startWebcam();
+
+        snapButton.addEventListener('click', () => {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            selfieImg.src = canvas.toDataURL();
+            video.style.display = 'none';
+            canvas.style.display = 'none';
+            selfieImg.style.display = 'block';
+            snapButton.style.display = 'none';
+            retakeButton.style.display = 'inline';
+            stopWebcam();
+        });
+
+        retakeButton.addEventListener('click', () => {
+            snapButton.style.display = 'none';
+            webcamMessage.style.display = "inline";
+            startWebcam();
+            
+            selfieImg.style.display = 'none';
+            retakeButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

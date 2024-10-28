@@ -1,0 +1,371 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background-style
+ {
+    font-family: Tahoma, Arial, sans-serif;
+    background: linear-gradient(to left, #E6E6FA, #ADD8E6);
+    color: #000000;
+    display: flex;
+    justify-content: center; align-items: center;
+    min-height: 100vh;
+    padding: 50px;
+    overflow: auto;
+}
+
+form 
+{
+    background: white;
+    border-radius: 30px;
+    border: 3px solid #9a75f9;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 27px;
+    width: 100%;
+    max-width: 400px;
+}
+h1
+{
+    margin-bottom: 20px;
+    font-size: 27px;
+    text-align: center;
+    color: #000000;
+
+}
+
+h2 
+{
+    margin-bottom: 20px;
+    font-size: 27px;
+    text-align: center;
+    color: #9ca3ff;
+}
+
+h3 
+{
+    margin-bottom: 20px;
+    font-size: 27px;
+    text-align: center;
+    color: #000000;
+}
+
+h4 
+{
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+}
+ h5 
+ {
+    margin-bottom: 20px;
+    font-size: 35px;
+    text-align: center;
+    color: #ff0000;
+ }
+
+
+ input[type="email"],
+ input[type="password"] {
+     width: 100%; 
+     padding: 27px; 
+     margin-bottom: 20px; 
+     border: 3px solid #9ca3ff; 
+     border-radius: 15px; 
+     font-size: 16px; 
+     color: #000000; 
+     background-color: #ffffff; 
+     transition: border-color 0.3s ease, background-color white 0.3s ease; 
+ }
+ 
+ input[type="email"]::placeholder,
+ input[type="password"]::placeholder 
+ {
+     color: #000000; 
+ }
+ 
+ input[type="email"]:focus,
+ input[type="password"]:focus 
+ {
+     border-color: #9ca3ff; 
+     background-color: #fff; 
+     outline: none; 
+ }
+ 
+ button {
+    background-color: #5b66ff;
+    border-color: #5b66ff;
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.1s;
+}
+
+input[type="button"]:focus
+ {
+    border-color: #5b66ff; 
+    background-color: #fff; 
+    outline: none; 
+ }
+
+
+ 
+input[type="text"],
+input[type="date"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 3px solid #9ca3ff;
+    border-radius: 15px;
+    transition: border-color 0.3s;
+} /*end of the signin.html page*/
+
+
+/*start of signup1.html*/ 
+progress 
+{
+    width: 100%; 
+    height: 20px; 
+    border-radius: 15px; 
+    background-color: #ffffff; 
+    border: 3px solid #9ca3ff; 
+    overflow: hidden; 
+    appearance: none; 
+}
+
+progress::-webkit-progress-value 
+{
+    background-color: #9ca3ff; 
+    border-radius: 20px;
+}
+
+progress::-webkit-progress-bar
+ {
+    background-color: #ffffff; 
+    border-radius: 15px; 
+ }
+
+ input[type="text"] 
+ {
+    width: 100%; 
+    padding: 15px; 
+    margin-bottom: 20px; 
+    border: 3px solid #9ca3ff; 
+    border-radius: 15px; 
+    font-size: 16px; 
+    color: #000000; 
+    background-color: #ffffff; 
+    transition: border-color 0.3s ease, background-color 0.3s ease; 
+}
+
+input[type="text"]::placeholder 
+{
+    color: #000000; 
+}
+
+input[type="text"]:hover 
+{
+    background-color: #fff; 
+}
+
+/* Стиль для поля даты */
+input[type="date"]
+ {
+    width: 100%; 
+    padding: 15px; 
+    margin-bottom: 20px; 
+    border: 3px solid #9ca3ff; 
+    border-radius: 15px; 
+    background-color: #ffffff; 
+    color: #000000; 
+    font-size: 16px; 
+    transition: border-color 0.3s ease, background-color 0.3s ease; 
+}
+
+input[type="date"]:focus
+ {
+    border-color: #9ca3ff; 
+    background-color: #fff; 
+    outline: none; 
+}
+
+label 
+{
+    font-size: 16px; 
+    color: #000000; 
+    margin-bottom: 20px; 
+    display: block; 
+}
+
+select
+ {
+    width: 100%; 
+    padding: 15px; 
+    margin-bottom: 20px; 
+    border: 3px solid #9ca3ff; 
+    border-radius: 15px; 
+    background-color: #ffffff; 
+    color: #000000; 
+    font-size: 16px; 
+    appearance: none; 
+    cursor: pointer; 
+    transition: border-color 0.3s ease, background-color 0.3s ease; 
+}
+
+select:focus 
+{
+    border-color: #9ca3ff;
+    background-color: #fff; 
+    outline: none; 
+}
+
+option
+ {
+    color: #000000; 
+    background-color: white; 
+}
+
+select option[disabled] {
+    color: #000000; 
+}
+
+input[type="email"],
+input[type="tel"],
+input[type="password"] 
+{
+    width: 100%; 
+    padding: 15px; 
+    margin-bottom: 15px; 
+    border: 3px solid #9ca3ff;
+    border-radius: 15px; 
+    background-color: #ffffff; 
+    font-size: 16px; 
+    color: #ffffff; 
+    transition: border-color 0.3s ease, background-color 0.3s ease; 
+}
+
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus
+ {
+    border-color: #9ca3ff; 
+    background-color: #fff; 
+    outline: none; 
+}
+
+input::placeholder 
+{
+    color: #000000; 
+}
+/*end of the signup1.html*/
+
+/*start of the signup2.html*/
+
+label 
+{
+    font-size: 16px;
+
+    color: #000000;
+    text-align: center;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+
+input[type="file"] 
+{
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 3px solid #9ca3ff;
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+p 
+{
+    font-size: 16px, bold;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.button-base
+ {
+    color: white;
+    background-color: #9ca3ff;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.button-base:hover
+ {
+    background-color: #9ca3ff;
+}
+/*end of the signup2.html*/
+
+/*start of the signup-fail.html*/
+#failed_message 
+{
+    display: block; 
+    color: #000000; 
+    background-color: #ffc6c6; 
+    border: 3px solid #ff8b8b; 
+    border-radius: 15px; 
+    padding: 15px; 
+    font-size: 16px; 
+    text-align: center; 
+    margin-top: 20px; 
+}
+
+
+
+
+
+
+
+
+
+
+
+a {
+    color: #f72020;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+    
+}
