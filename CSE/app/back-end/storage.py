@@ -41,7 +41,7 @@ connection.close()
 import sqlite3
 
 def connect():
- return sqlite3.connect("D:\\LUCHICI\\rau-webapps-24-25\\CSE\\app\\back-end\\app.db")
+ return sqlite3.connect("C:\\Users\\NIYA\\Desktop\\Web applications\\rau-webapps-24-25\\CSE\\app\\back-end\\app.db")
 
 connection = connect()
 

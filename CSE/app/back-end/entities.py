@@ -59,10 +59,40 @@ class User:
         return result 
 
     def update(self, dbconnection, table_name="users"):
-        pass 
+        query = f"""UPDATE {table_name}
+        SET first_name = '{self.first_name}', 
+            last_name = '{self.last_name}', 
+            dob = {self.dob}, 
+            gender = {self.gender}, 
+            phone = '{self.phone}', 
+            email = '{self.email}', 
+            password = '{self.password}', 
+            created_at = {self.created_at}, 
+            updated_at =  {self.updated_at}
+        WHERE id = {self.id}""" 
+        cursor = dbconnection.cursor()
+        cursor.execute(query)
+        dbconnection.commit()
+        cursor.close()
+        dbconnection.close()
+          
 
     def delete(self, dbconnection, table_name="users"):
-        pass 
+        query = f"""DELETE FROM {table_name} WHERE id = {self.id}""" 
+        cursor = dbconnection.cursor()
+        cursor.execute(query)
+        dbconnection.commit()
+        cursor.close()
+        dbconnection.close()
+        print("deleted succesfully")
+        
+    def deleteAll(self, dbconnection, table_name="users"):
+        query = f"""DELETE FROM {table_name}"""
+        cursor = dbconnection.cursor()
+        cursor.execute(query)
+        dbconnection.commit()
+        cursor.close()
+        dbconnection.close()
 
 
 class UserFile:
@@ -108,3 +138,29 @@ if __name__ == "__main__":
     user.id = 1
     u = user.get(connection)
     print(u) 
+    
+    user.first_name = "Malcho"
+    connection = connect()
+    user.update(connection)
+    
+    connection = connect()
+    u = user.get(connection)
+    print(u) 
+    
+    user.last_name = "Malchov"
+    connection = connect()
+    user.update(connection)
+ 
+    connection = connect()
+    u = user.get(connection)
+    print(u) 
+    
+    connection = connect()
+    user.deleteAll(connection)
+    
+    connection = connect()
+    u = user.get(connection)
+    print(u) 
+    
+    
+    
