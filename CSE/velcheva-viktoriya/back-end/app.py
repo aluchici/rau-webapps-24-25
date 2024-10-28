@@ -1,30 +1,49 @@
 from datetime import datetime
+import json
 from flask import Flask, request, Response
 
-app=Flask("app")
+app = Flask("app")
 
 @app.route("/", methods=["GET"])
 def home():
-    print("Hello")
     return "<h1>Welcome to my page</h1>"
 
 @app.route("/version", methods=["GET"])
 def version():
-    return {
-        "version":"1.0.0",
+    response = {
+        "version": "1.0.0",
         "requested_at": str(datetime.now())
     }
+    return response
 
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
-    #1. receive data
+    # 1. receive data
     print(request)
+    body = request.json
 
-    #2. validate data
+    # 2. validate data
+    keys = list(body.keys())
+    if not "email" in keys:
+        return Response(json.dumps({"error": "Invalid request. Email not sent."}), 
+                        status=400, 
+                        headers={"Content-Type": "application/json"})
+    
+    if not "password" in keys:
+        return Response(json.dumps({"error": "Invalid request. Password not sent."}), 
+                        status=400, 
+                        headers={"Content-Type": "application/json"})
+    
+    # 3. check against the stored data
+    # 4. return a response based on the result obtained at 3. 
+    return Response({}, status=200, headers={"Content-Type": "application/json"})
 
-    #3. check against the stored data
-    #4. return a response based on the result obtained at 3.
+@app.route("/signup", method=["POST"])
+def signup():
+    # TODO: Implement signup logic
+    create_account()
+    return ""
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
-
