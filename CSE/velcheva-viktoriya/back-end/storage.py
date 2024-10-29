@@ -39,3 +39,20 @@ cursor.close()
 
 # 6. close connection (optional, ideal)
 connection.close()
+
+# CREATE USER FILES TABLE
+query = """CREATE TABLE IF NOT EXISTS user_files(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    uploaded_image_url VARCHAR,
+    selfie_url VARCHAR,
+    user_id INTEGER,
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP
+);
+"""
+connection = connect()
+cursor=connection.cursor()
+cursor.execute(query)
+connection.commit()
+cursor.close()
+connection.close()
