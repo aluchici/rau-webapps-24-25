@@ -57,6 +57,7 @@ def signin():
         response = Response(json.dumps({"error": "User missing."}), 
                             status=404, 
                             headers={"Content-Type": "application/json"})
+    
     # 4. return a response based on the result obtained at 3. 
     return response
 
