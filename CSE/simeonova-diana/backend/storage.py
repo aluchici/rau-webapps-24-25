@@ -14,7 +14,7 @@ query = """CREATE TABLE IF NOT EXISTS users (
     dob VARCHAR,
     gender INTEGER,
     phone VARCHAR,
-    email VARCHAR,
+    email VARCHAR UNIQUE,
     password VARCHAR,
     created_at TIMESTAMP,
     updated_at TIMESTAMP,

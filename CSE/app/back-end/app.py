@@ -35,8 +35,6 @@ def signin():
                         status=400, 
                         headers={"Content-Type": "application/json"})
     
-    # 3. check against the stored data
-    # 4. return a response based on the result obtained at 3. 
     return Response({}, status=200, headers={"Content-Type": "application/json"})
 
 @app.route("/signup", methods=["POST"])

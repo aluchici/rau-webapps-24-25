@@ -53,6 +53,8 @@ class User:
         dbconnection.close()
     # === Initilization and other utils of helper methods === #
     def from_tuple(self, user_tuple):
+        #prevention from returning an empty tuple
+        assert len(user_tuple) == 11 #check for the exact num of fields
         self.id = user_tuple[0]
         self.first_name = user_tuple[1]
         self.last_name = user_tuple[2]
@@ -67,7 +69,7 @@ class User:
         return self
     
     def from_dict(self, user_dict):
-        self.id = user_dict["id"]
+        self.id = user_dict.get("id")
         self.first_name = user_dict["first_name"]
         self.last_name = user_dict["last_name"]
         self.dob = user_dict["dob"]
@@ -75,9 +77,9 @@ class User:
         self.phone = user_dict["phone"]
         self.email = user_dict["email"]
         self.password = user_dict["password"]
-        self.created_at = user_dict["created_at"]
-        self.updated_at = user_dict["updated_at"]
-        self.is_active = user_dict["is_active"]
+        self.created_at = user_dict.get("created_at")
+        self.updated_at = user_dict.get("updated_at")
+        self.is_active = user_dict.get("is_active")
         return self
     
     def from_json(self, user_json):
@@ -119,7 +121,16 @@ class User:
         self.from_tuple(result) #initliaze it with a tuple, return a copy 
         return self
     
-    
+    def get_by_email(self, dbconnection, table_name="users"):
+        assert user is not None
+        query = f"""SELECT * FROM {table_name} WHERE email = '{user.email}'""" 
+        cursor = dbconnection.cursor()
+        cursor.execute(query)
+        result = cursor.fetchone()
+        cursor.close()
+        dbconnection.close()
+        self.from_tuple(result)
+        return self 
     
     def update(self, dbconnection, table_name="users"):
         query = f"""UPDATE {table_name}
@@ -184,6 +195,42 @@ class UserFile:
         dbconnection.commit()
         cursor.close()
         dbconnection.close()
+        
+    def from_tuple(self, user_files_tuple):
+        self.id = user_files_tuple[0]
+        self.uploaded_image_url = user_files_tuple[1]
+        self.selfie_url = user_files_tuple[2]
+        self.user_id = user_files_tuple[3]
+        self.created_at = user_files_tuple[4]
+        self.updated_at = user_files_tuple[5]
+        return self
+    
+    def from_dict(self, user_files_tuple):
+        self.id = user_files_tuple["id"]
+        self.uploaded_image_url = user_files_tuple["uploaded_image_urle"]
+        self.selfie_url = user_files_tuple["selfie_url"]
+        self.user_id = user_files_tuple["user_id"]
+        self.created_at = user_files_tuple["created_at"]
+        self.updated_at = user_files_tuple["updated_at"]
+        return self
+    
+    def from_json(self, user_files_json):
+        user_files_dict = json.loads(user_files_json)
+        return self.from_dict(user_files_dict)
+    
+    def to_dict(self):
+        user_files_dict = {
+            "id": self.id,
+            "uploaded_image_url": self.uploaded_image_url,
+            "selfie_url": self.selfie_url,
+            "user_id": self.user_id,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+        }
+        return user_files_dict
+    
+    def to_json(self):
+        return json.dumps(self.to_dict())
     
     def get(self, dbconnection, table_name="user_files"):
         query = f"""
@@ -194,7 +241,17 @@ class UserFile:
         result = cursor.fetchone()
         cursor.close()
         dbconnection.close()
-        return result
+        self.from_tuple(result)
+        return self
+    def get_by_user_id(self, dbconnection, table_name="user_files", user_id=None):
+        assert user_id is not None # Check that a valid user id is provided.
+        query = f"""SELECT * FROM {table_name} WHERE user_id = {user_id}""" 
+        cursor = dbconnection.cursor()
+        cursor.execute(query)
+        result = cursor.fetchone()
+        cursor.close()
+        dbconnection.close()
+        return result 
     
     def update(self):
         pass
@@ -217,13 +274,18 @@ if __name__ == "__main__":
     user.gender = 0
     user.is_active = 0
     
-    connection = connect()
-    user.insert(connection)
+    # connection = connect()
+    # user.insert(connection)
     
-    connection = connect()
-    user.id = 1
-    u = user.get(connection)
-    print(u)
+    # connection = connect()
+    # user.id = 1
+    # u = user.get(connection)
+    # print(u)
+    
+    # print(u.to_dict())
+    # print(u.to_json())
+    
+    
     
     # user.first_name = "steak"
     # connection = connect()
@@ -259,3 +321,6 @@ if __name__ == "__main__":
     user_file.id = 1
     u_f = user_file.get(connection)
     print(u_f)
+    
+    print(u_f.to_dict())
+    print(u_f.to_json())
