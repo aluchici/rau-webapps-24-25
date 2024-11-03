@@ -1,0 +1,556 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e9dcc4; /* Light beige background */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: #333; /* Default text color */
+}
+
+/* Styling for the Navigation Bar */
+nav {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between items */
+    height: 60px; /* Set a height for the nav bar */
+    padding: 0 20px; /* Add horizontal padding */
+    background-color: #f8f8f8; /* Change to your preferred background */
+}
+
+.logo img {
+    height: 50px; /* Промени размера на логото, ако е необходимо */
+    margin-right: 10px; /* Разстояние между логото и заглавието */
+}
+
+.top-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4b2e2e; /* Cozy dark theme */
+    color: white;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.site-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #f3eac3;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-center {
+    display: flex; /* Align items in a row */
+    align-items: center; /* Center items vertically */
+}
+
+.nav-link {
+    margin-left: 20px;
+    color: #f3eac3;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-link:hover {
+    color: #dab09c;
+}
+
+.search-container {
+    display: flex; /* Align items in a row */
+    align-items: center; /* Center items vertically */
+    position: relative; /* Position relative for absolute positioning */
+}
+
+.search-bar {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #dab09c;
+    width: 250px;
+    background-color: #f3eac3;
+}
+
+.search-button {
+    background: none; /* Remove default button styling */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor to pointer */
+    padding: 0; /* Remove padding */
+    margin-left: -1px; /* Align with the input */
+    height: 36px; /* Match the height of the input */
+    display: flex; /* Align items in the center */
+    align-items: center; /* Center items vertically */
+}
+
+.search-icon {
+    width: 24px; /* Adjust size of the search icon */
+    height: 24px;
+    margin-left: 5px;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.profile-container {
+    display: flex; /* Align items in a row */
+    align-items: center; /* Center icons vertically */
+}
+
+/* Main content wrapper to align sections */
+.main-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Space between sections */
+    padding: 20px;
+    width: 100%;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between Currently Reading and To Be Reviewed */
+    width: 250px; /* Width of the left column */
+}
+
+/* Style for both Currently Reading and To Be Reviewed Sections */
+#currently-reading,
+.to-be-reviewed {
+    width: 250px;
+    padding: 15px;
+    background-color: white; /* White box background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.review-section, .top-10-worst-books, .to-be-reviewed {
+    flex: 1; /* Allow these sections to grow */
+    max-width: 300px; /* Set a max width for better layout */
+}
+
+.top-10-worst-books, .to-be-reviewed {
+    padding: 15px;
+    background-color: white; /* White box background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+}
+
+/* Currently Reading Section */
+#currently-reading .book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#currently-reading .book img {
+    width: 80px; /* Adjust to desired width */
+    height: auto; /* Keeps the aspect ratio */
+    border-radius: 5px;
+}
+
+.add-book-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background-color: #8b5e3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-book-button:hover {
+    background-color: #a6744e;
+}
+
+/* To Be Reviewed Section */
+.to-be-reviewed {
+    margin-top: 20px; /* Separate from the section above */
+}
+
+.to-be-reviewed h2 {
+    margin-bottom: 10px;
+}
+
+.review-book-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 10px;
+}
+
+.review-book-list .book img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Review Section Styling */
+.review-section {
+    flex: 1;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 0; /* Align with Currently Reading */
+}
+
+/* Header */
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.user-profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #4b2e2e;
+}
+
+/* Review Body */
+.review-body {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.book-cover {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.book-details {
+    max-width: 400px;
+}
+
+.book-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4b2e2e;
+}
+
+.review-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.more-link {
+    color: #8b5e3c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.more-link:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.review-footer {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.like-button, .comment-button {
+    background-color: #8b5e3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.like-button:hover, .comment-button:hover {
+    background-color: #a6744e;
+}
+
+/* Comment Section */
+.comment-section {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.comment-profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Styling for Like and Comment links */
+.action-link {
+    color: #8b5e3c;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+.book {
+    display: flex;
+    align-items: flex-start; /* Подравняване на елементите в горната част */
+    gap: 10px; /* Разстояние между корицата и текста */
+    margin-bottom: 15px; /* Разстояние между двете книги */
+}
+
+.book-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-title {
+    font-weight: bold;
+    color: #4b2e2e; /* Цветът на заглавието */
+}
+
+.book-author {
+    color: #666; /* Цветът на автора */
+    font-size: 0.9rem;
+}
+
+.top-10-worst-books {
+    flex: 0 0 250px; /* Allow this section to take 250px */
+    padding: 10px;
+    background-color: white; /* Background for the white box */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+}
+
+.top-10-worst-books .book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Отстояние между книгите */
+}
+
+.top-10-worst-books .book img {
+    width: 80px; /* По-малка ширина на кориците */
+    height: auto; /* Запази аспектното съотношение */
+}
+
+.view-all-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background-color: #8b5e3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.view-all-button:hover {
+    background-color: #a6744e;
+}
+
+.review-container {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 20px; /* Space between reviews */
+}
+
+.review-section {
+    width: 100%; /* Full width of the grid cell */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.currently-reading h2{
+    margin-bottom: 15px; /* Adjust this value as needed */
+}
+
+.top-10-worst-books h2 {
+    margin-bottom: 15px; /* Adjust this value as needed */
+}
+
+.bell-icon {
+    width: 24px; /* Adjust this value for your desired size */
+    height: 24px; /* Adjust this value for your desired size */
+    cursor: pointer; /* Optional: Change cursor to pointer on hover */
+    margin-right: 5px; /* Space between bell and profile icon */
+}
+
+footer {
+    width: 100%;
+    background-color: #e9dcc4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #a6744e;
+    padding: 10px;
+    text-align: center; /* Center align footer content */
+    position: relative;
+}
+
+.like-link {
+    text-decoration: none; /* Премахва подчертаването по подразбиране */
+    cursor: pointer; /* Показва курсор за указание, че е кликаем */
+}
+
+.like-link:hover {
+    text-decoration: underline; /* Подчертава линка при ховър */
+}
+
+.thumb-icon {
+    width: 17px; /* Можеш да коригираш размера на иконката */
+    vertical-align: middle; /* Центрира иконката спрямо текста */
+    margin-right: 5px; /* Разстояние между иконката и числото */
+}
+
+.like-count {
+    display: inline-flex; /* Задава стил за подравняване на елементите */
+    align-items: center; /* Центрира вертикално */
+    margin-bottom: 5px; /* Разстояние между палчето и текста "Like" */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cover-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cover {
+    width: 80px;
+    height: 120px;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.input-container {
+    flex-grow: 1;
+}
+
+.modal input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#discardButton {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+#addButton {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    margin-left: 0px;
+}
+
+/* Modal Button Styles */
+.button-container button {
+    background-color: #8B4513; /* Change to your preferred color */
+    color: #FFF; /* Text color */
+    border: none;
+    padding: 10px 15px; /* Adjust padding */
+    border-radius: 5px; /* Round corners */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+    background-color: #A0522D; /* Darker shade for hover effect */
+}
+
+/* Discard Button */
+#discardButton {
+    background-color: #8B4513; /* Same as other buttons */
+    color: white;
+}
+
+#discardButton:hover {
+    background-color: #A0522D; /* Hover effect for discard button */
+}
+
+/* Add Button */
+#addButton {
+    background-color: #8B4513; /* Same as other buttons */
+    color: white;
+}
+
+#addButton:hover {
+    background-color: #A0522D; /* Hover effect for add button */
+}
+
+#addNewBookButton {
+    background-color: #8B4513; /* Same as other buttons */
+    color: white;
+    margin-left: 0px;
+}

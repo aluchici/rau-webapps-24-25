@@ -1,0 +1,252 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    background: linear-gradient(to right, #4e342e, #8d6e63); /* Dark brown to soft beige gradient */
+    color: #f0e7db; /* Light beige text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: auto;
+}
+
+form {
+    background: #3e2723; /* Dark brown background */
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 26px;
+    text-align: center;
+    color: #d7ccc8; /* Light brown */
+}
+
+h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: center;
+    color: #a1887f; /* Soft beige */
+}
+
+input[type="text"],
+input[type="date"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #8d6e63; /* Muted brown border */
+    border-radius: 10px;
+    transition: border-color 0.3s;
+    background-color: #5d4037; /* Dark brown input background */
+    color: #f0e7db; /* Light beige text */
+}
+
+.prog-bar {
+    width: 100%;
+    height: 20px; /* Височина за по-добра видимост */
+    border: 2px solid #7d5a50; /* Цвят на рамката */
+    border-radius: 12px; /* Заоблени ъгли */
+    background-color: #40342d; /* Цвят на фона */
+    appearance: none; /* Премахване на стандартния стил */
+}
+
+.prog-bar::-webkit-progress-bar {
+    background-color: #40342d; /* Тъмен фон на бара */
+    border-radius: 12px; /* Заоблени ъгли */
+}
+
+.prog-bar::-webkit-progress-value {
+    background-color: #b89984; /* Светлокафяво за запълнената част */
+    border-radius: 12px; /* Заоблени ъгли */
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #d7ccc8;
+    outline: none;
+}
+
+.button-base {
+    color: #3e2723; /* Dark brown text */
+    background-color: #d7ccc8; /* Light brown background */
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.button-base:hover {
+    background-color: #a1887f; /* Soft beige hover effect */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #d7ccc8; /* Light brown */
+}
+
+a {
+    color: #d7ccc8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.account-creation {
+    margin-top: 20px; /* Разстояние от бутона до текста */
+    text-align: center; /* Центрира текста, ако искаш */
+}
+
+.prog-bar {
+    width: 100%;
+}
+
+/* Основни стилове */
+.prog-bar {
+    width: 100%;
+}
+
+/* Ensure the camera square width matches the button */
+/* Access Camera Button Style */
+.button-overlay {
+    width: 100%; /* Пълна ширина */
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #d7ccc8; /* Light brown background */
+    color: #3e2723; /* Dark brown text */
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 10px 0;
+}
+
+.button-overlay:hover {
+    background-color: #a1887f; /* Soft beige on hover */
+}
+
+.video-container {
+    border-radius: 15px; /* Закръгли ъглите на контейнера */
+    overflow: hidden; /* Скрий излишното съдържание, което излиза извън контейнера */
+}
+
+.video-container {
+    position: relative; /* Позволява позициониране на елементи в контейнера */
+}
+
+video, canvas {
+    border-radius: 15px; /* Закръгли ъглите на видеото и канваса */
+    width: 100%; /* Направи видеото и канваса да заемат ширината на контейнера */
+    height: auto; /* Поддържай пропорцията на видеото и канваса */
+    display: block; /* Увери се, че елементите са блокови и заемат наличното пространство */
+}
+
+canvas {
+    display: none; /* Скрива канваса, докато не бъде направена снимка */
+    position: absolute; /* Позволява на канваса да покрие видеото */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Увери се, че канвасът е над видеото */
+}
+
+#cameraSquare {
+    width: 100%;
+    height: 300px;
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+#video, #canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.primary-button {
+    width: 100%; /* Пълна ширина */
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #d7ccc8; /* Light brown background */
+    color: #3e2723; /* Dark brown text */
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 10px 0;
+}
+
+.primary-button:hover {
+    background-color: #a1887f; /* Soft beige on hover */
+}
+
+#fileLabel {
+    font-size: 1.5em; /* Увеличава размера на шрифта */
+    /* Можеш да добавиш и допълнителни стилове, ако желаеш */
+}
+
+.flash-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Бял ефект на светкавицата */
+    display: none;
+    z-index: 2; /* Увери се, че е над видеото и канваса */
+}
+
+/* Стил за бутона "Sign in" */
+.next {
+    width: 100%; /* Пълна ширина */
+    padding: 15px; /* Вътрешно разстояние */
+    font-size: 16px; /* Размер на шрифта */
+    background-color: #d7ccc8; /* Светло кафяв фон */
+    color: #3e2723; /* Тъмен кафяв текст */
+    border: none; /* Без рамка */
+    border-radius: 10px; /* Закръглени ъгли */
+    cursor: pointer; /* Курсор при задържане */
+    transition: background-color 0.3s; /* Плавен преход за фона */
+}
+
+.next:hover {
+    background-color: #a1887f; /* Светло бежов цвят при задържане */
+}
+
+.form-title {
+    margin-bottom: 20px; /* Разстояние отдолу */
+    text-align: left; /* Центрира заглавието */
+    font-size: 32px; /* Размер на шрифта */
+    color: #d7ccc8; /* Цветът на текста */
+}
+
+#error-message {
+    color: #ff4d4d; /* Червен цвят за съобщението за грешка */
+    text-align: center; /* Центрирай текста */
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Upload ID</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body class="background-style">
+    <form id="step1form">
+        <h1>Upload ID</h1><br>
+        <h2>
+            <progress class="prog-bar" id="progress-bar" value="100" max="100"></progress>
+        </h2><br>
+        
+        <button id="startCameraButton" class="button-overlay" onclick="signupStep2(event)">Access camera</button><br><br>
+        
+        <div class="video-container">
+            <div id="cameraSquare" style="position: relative;">
+                <video id="video" autoplay style="display: block; border-radius: 15px;"></video>
+                <div id="flash" class="flash-effect" style="display: none;"></div>
+            </div>
+            <canvas id="canvas" style="display: none; border-radius: 15px;"></canvas> <!-- Снимката ще бъде в канвас, но скрита -->
+        </div><br><br>
+        
+        <button id="takePhotoButton" class="button-base primary-button" style="display: none;" onclick="takePhoto(event)">Take a picture</button><br><br>
+
+        <label id="fileLabel" for="upload_id">Choose an ID picture</label><br>
+        <input type="file" id="upload_id" name="file" accept="image/*" onchange="updateFileName()"><br><br><br>
+        <button type="submit" class="button-base primary-button">Sign Up</button>
+    </form>
+    <script src="signup-2.js"></script>
+</body>
+</html>
