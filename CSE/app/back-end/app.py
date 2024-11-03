@@ -2,13 +2,15 @@ from datetime import datetime
 import json
 from flask import Flask, request, Response
 
-from authorize import create_account
+from entities import User 
 
 app = Flask("app")
+
 
 @app.route("/", methods=["GET"])
 def home():
     return "<h1>Welcome to my page</h1>"
+
 
 @app.route("/version", methods=["GET"])
 def version():
@@ -17,6 +19,7 @@ def version():
         "requested_at": str(datetime.now())
     }
     return response
+
 
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
@@ -36,13 +39,56 @@ def signin():
                         headers={"Content-Type": "application/json"})
     
     # 3. check against the stored data
+    # 3.1. get the user data based on the provided email
+    # 3.2. if they exist => check that the user password matches the provided password
+    # 3.3. if they match => we let them in 
+    user = User()
+    try:
+        user.get_by_email(email=body["email"])
+        if user.password == body["password"]:
+            response = Response(json.dumps({"data": {"id": user.id, "first_name": user.first_name}}),
+                                status=200,
+                                headers={"Content-Type": "application/json"})
+        else:
+            response = Response(json.dumps({"error": "User email or password are wrong."}), 
+                                status=400, 
+                                headers={"Content-Type": "application/json"})
+    except Exception as e:
+        response = Response(json.dumps({"error": "User missing."}), 
+                            status=404, 
+                            headers={"Content-Type": "application/json"})
+    
     # 4. return a response based on the result obtained at 3. 
-    return Response({}, status=200, headers={"Content-Type": "application/json"})
+    return response
+
 
 @app.route("/signup", methods=["POST"])
 def signup():
-    create_account()
-    return ""
+    body = request.json
+    
+    user = User()
+    try:
+        user.from_dict(body)
+        user.get_by_email(email=user.email)
+        if user.id is not None:
+            response = Response(json.dumps({"error": f"User already exists."}),
+                                status=400,
+                                headers={"Content-Type": "application/json"})
+            return response
+        
+        user.is_active = 1
+        user.created_at = datetime.now().timestamp()
+        user.updated_at = user.created_at
+        user.insert()
+        user.get()
+        response = Response(json.dumps({"data": {"id": user.id, "first_name": user.first_name}}),
+                                status=200,
+                                headers={"Content-Type": "application/json"})
+    except Exception as e:
+        response = Response(json.dumps({"error": f"Something went wrong. Cause: {e}."}),
+                            status=400,
+                            headers={"Content-Type": "application/json"})
+    return response
 
 
 if __name__ == "__main__":

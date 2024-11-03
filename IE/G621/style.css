@@ -1,0 +1,38 @@
+.color1 {
+    background-color: #ECC8AF;
+}
+.color2 {
+    background-color: #E7AD99;
+}
+.color3 {
+    background-color: #CE796B;
+}
+.color4 {
+    background-color: #C18C5D;
+}
+.color5 {
+    background-color: #495867;
+}
+
+button {
+    border: solid 2px;
+    border-radius: 20px;
+    border-color: #C18C5D;
+    background-color: #ECC8AF;
+    color: #495867;
+    font-size: 20px;
+}
+button:hover {
+    font-size: 50px;
+    border-color: #E7AD99;
+    /* color: black; */
+}
+input:focus {
+    border: solid #E7AD99;
+}
+.primary-text {
+    font-size: 18px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    color: #495867;
+}
