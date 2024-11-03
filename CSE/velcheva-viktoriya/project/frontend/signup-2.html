@@ -7,20 +7,20 @@
     <link rel="stylesheet" href="signup.css">
 </head>
 <body class="background-style">
-    <form id="step1form">
+    <form id="step1Form">
         <h1>Upload ID</h1><br>
         <h2>
             <progress class="prog-bar" id="progress-bar" value="100" max="100"></progress>
         </h2><br>
         
-        <button id="startCameraButton" class="button-overlay" onclick="signupStep2(event)">Access camera</button><br><br>
+        <button id="accessCameraButton" type="button" class="button-overlay">Access camera</button>
         
         <div class="video-container">
             <div id="cameraSquare" style="position: relative;">
                 <video id="video" autoplay style="display: block; border-radius: 15px;"></video>
                 <div id="flash" class="flash-effect" style="display: none;"></div>
             </div>
-            <canvas id="canvas" style="display: none; border-radius: 15px;"></canvas> <!-- Снимката ще бъде в канвас, но скрита -->
+            <canvas id="canvas" style="display: none; border-radius: 15px;"></canvas>
         </div><br><br>
         
         <button id="takePhotoButton" class="button-base primary-button" style="display: none;" onclick="takePhoto(event)">Take a picture</button><br><br>

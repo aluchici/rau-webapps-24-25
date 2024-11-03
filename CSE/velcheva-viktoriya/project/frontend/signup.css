@@ -1,4 +1,3 @@
-/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,8 +7,8 @@
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    background: linear-gradient(to right, #4e342e, #8d6e63); /* Dark brown to soft beige gradient */
-    color: #f0e7db; /* Light beige text color */
+    background: linear-gradient(to right, #4e342e, #8d6e63);
+    color: #f0e7db;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +18,7 @@ body {
 }
 
 form {
-    background: #3e2723; /* Dark brown background */
+    background: #3e2723;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     padding: 30px;
@@ -31,14 +30,14 @@ h2 {
     margin-bottom: 10px;
     font-size: 26px;
     text-align: center;
-    color: #d7ccc8; /* Light brown */
+    color: #d7ccc8;
 }
 
 h3 {
     margin-bottom: 20px;
     font-size: 18px;
     text-align: center;
-    color: #a1887f; /* Soft beige */
+    color: #a1887f;
 }
 
 input[type="text"],
@@ -48,30 +47,30 @@ select {
     width: 100%;
     padding: 15px;
     margin-bottom: 15px;
-    border: 2px solid #8d6e63; /* Muted brown border */
+    border: 2px solid #8d6e63;
     border-radius: 10px;
     transition: border-color 0.3s;
-    background-color: #5d4037; /* Dark brown input background */
-    color: #f0e7db; /* Light beige text */
+    background-color: #5d4037;
+    color: #f0e7db;
 }
 
 .prog-bar {
     width: 100%;
-    height: 20px; /* Височина за по-добра видимост */
-    border: 2px solid #7d5a50; /* Цвят на рамката */
-    border-radius: 12px; /* Заоблени ъгли */
-    background-color: #40342d; /* Цвят на фона */
-    appearance: none; /* Премахване на стандартния стил */
+    height: 20px;
+    border: 2px solid #7d5a50;
+    border-radius: 12px;
+    background-color: #40342d;
+    appearance: none;
 }
 
 .prog-bar::-webkit-progress-bar {
-    background-color: #40342d; /* Тъмен фон на бара */
-    border-radius: 12px; /* Заоблени ъгли */
+    background-color: #40342d;
+    border-radius: 12px;
 }
 
 .prog-bar::-webkit-progress-value {
-    background-color: #b89984; /* Светлокафяво за запълнената част */
-    border-radius: 12px; /* Заоблени ъгли */
+    background-color: #b89984;
+    border-radius: 12px;
 }
 
 input[type="text"]:focus,
@@ -83,8 +82,8 @@ select:focus {
 }
 
 .button-base {
-    color: #3e2723; /* Dark brown text */
-    background-color: #d7ccc8; /* Light brown background */
+    color: #3e2723;
+    background-color: #d7ccc8;
     padding: 15px;
     border-radius: 10px;
     cursor: pointer;
@@ -93,13 +92,13 @@ select:focus {
 }
 
 .button-base:hover {
-    background-color: #a1887f; /* Soft beige hover effect */
+    background-color: #a1887f;
 }
 
 label {
     display: block;
     margin-bottom: 10px;
-    color: #d7ccc8; /* Light brown */
+    color: #d7ccc8;
 }
 
 a {
@@ -112,28 +111,25 @@ a:hover {
 }
 
 .account-creation {
-    margin-top: 20px; /* Разстояние от бутона до текста */
-    text-align: center; /* Центрира текста, ако искаш */
+    margin-top: 20px;
+    text-align: center;
 }
 
 .prog-bar {
     width: 100%;
 }
 
-/* Основни стилове */
 .prog-bar {
     width: 100%;
 }
 
-/* Ensure the camera square width matches the button */
-/* Access Camera Button Style */
 .button-overlay {
-    width: 100%; /* Пълна ширина */
+    width: 100%;
     padding: 15px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #d7ccc8; /* Light brown background */
-    color: #3e2723; /* Dark brown text */
+    background-color: #d7ccc8;
+    color: #3e2723;
     border: none;
     border-radius: 10px;
     text-align: center;
@@ -143,31 +139,31 @@ a:hover {
 }
 
 .button-overlay:hover {
-    background-color: #a1887f; /* Soft beige on hover */
+    background-color: #a1887f;
 }
 
 .video-container {
-    border-radius: 15px; /* Закръгли ъглите на контейнера */
-    overflow: hidden; /* Скрий излишното съдържание, което излиза извън контейнера */
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .video-container {
-    position: relative; /* Позволява позициониране на елементи в контейнера */
+    position: relative;
 }
 
 video, canvas {
-    border-radius: 15px; /* Закръгли ъглите на видеото и канваса */
-    width: 100%; /* Направи видеото и канваса да заемат ширината на контейнера */
-    height: auto; /* Поддържай пропорцията на видеото и канваса */
-    display: block; /* Увери се, че елементите са блокови и заемат наличното пространство */
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 canvas {
-    display: none; /* Скрива канваса, докато не бъде направена снимка */
-    position: absolute; /* Позволява на канваса да покрие видеото */
+    display: none;
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; /* Увери се, че канвасът е над видеото */
+    z-index: 1;
 }
 
 #cameraSquare {
@@ -188,12 +184,12 @@ canvas {
 }
 
 .primary-button {
-    width: 100%; /* Пълна ширина */
+    width: 100%;
     padding: 15px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #d7ccc8; /* Light brown background */
-    color: #3e2723; /* Dark brown text */
+    background-color: #d7ccc8;
+    color: #3e2723; 
     border: none;
     border-radius: 10px;
     text-align: center;
@@ -203,12 +199,11 @@ canvas {
 }
 
 .primary-button:hover {
-    background-color: #a1887f; /* Soft beige on hover */
+    background-color: #a1887f;
 }
 
 #fileLabel {
-    font-size: 1.5em; /* Увеличава размера на шрифта */
-    /* Можеш да добавиш и допълнителни стилове, ако желаеш */
+    font-size: 1.5em;
 }
 
 .flash-effect {
@@ -217,36 +212,35 @@ canvas {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.7); /* Бял ефект на светкавицата */
+    background-color: rgba(255, 255, 255, 0.7);
     display: none;
-    z-index: 2; /* Увери се, че е над видеото и канваса */
+    z-index: 2;
 }
 
-/* Стил за бутона "Sign in" */
 .next {
-    width: 100%; /* Пълна ширина */
-    padding: 15px; /* Вътрешно разстояние */
-    font-size: 16px; /* Размер на шрифта */
-    background-color: #d7ccc8; /* Светло кафяв фон */
-    color: #3e2723; /* Тъмен кафяв текст */
-    border: none; /* Без рамка */
-    border-radius: 10px; /* Закръглени ъгли */
-    cursor: pointer; /* Курсор при задържане */
-    transition: background-color 0.3s; /* Плавен преход за фона */
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    background-color: #d7ccc8;
+    color: #3e2723;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .next:hover {
-    background-color: #a1887f; /* Светло бежов цвят при задържане */
+    background-color: #a1887f;
 }
 
 .form-title {
-    margin-bottom: 20px; /* Разстояние отдолу */
-    text-align: left; /* Центрира заглавието */
-    font-size: 32px; /* Размер на шрифта */
-    color: #d7ccc8; /* Цветът на текста */
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 32px;
+    color: #d7ccc8;
 }
 
 #error-message {
-    color: #ff4d4d; /* Червен цвят за съобщението за грешка */
-    text-align: center; /* Центрирай текста */
+    color: #ff4d4d;
+    text-align: center;
 }

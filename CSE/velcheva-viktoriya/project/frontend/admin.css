@@ -8,8 +8,8 @@
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    background: linear-gradient(to right, #4e342e, #8d6e63); /* Dark brown to soft beige gradient */
-    color: #f0e7db; /* Light beige text color */
+    background: linear-gradient(to right, #4e342e, #8d6e63);
+    color: #f0e7db;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,25 +19,25 @@ body {
 }
 
 form {
-    background: #523530; /* Dark brown background */
+    background: #523530;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     padding: 30px;
     width: 100%;
-    max-width: 800px; /* Wider for the user table */
+    max-width: 800px;
 }
 
 h2 {
     margin-bottom: 10px;
     font-size: 26px;
     text-align: center;
-    color: #d7ccc8; /* Light brown */
+    color: #d7ccc8;
 }
 
 .user-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px; /* Space above the table */
+    margin-top: 20px;
 }
 
 .user-table th, .user-table td {
@@ -46,18 +46,18 @@ h2 {
 }
 
 .user-table th {
-    background-color: #493330; /* Green header */
+    background-color: #493330;
     color: white;
 }
 
 .user-table td {
-    background-color: #815f55; /* Dark brown cells */
-    color: #f0e7db; /* Light beige text */
+    background-color: #815f55;
+    color: #f0e7db;
 }
 
 .user-table button {
-    background-color: #d7ccc8; /* Light brown background */
-    color: #503430; /* Dark brown text */
+    background-color: #d7ccc8;
+    color: #503430;
     border: none;
     border-radius: 10px;
     padding: 10px;
@@ -66,5 +66,5 @@ h2 {
 }
 
 .user-table button:hover {
-    background-color: #a1887f; /* Soft beige hover effect */
+    background-color: #a1887f;
 }

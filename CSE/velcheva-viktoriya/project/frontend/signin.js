@@ -9,13 +9,13 @@ const form = document.querySelector('form');
 form.addEventListener('submit', stopFormDefault);
 
 function stopFormDefault(event) {
-    event.preventDefault(); // Prevent default form submission
-    signin(); // Call the signin function
+    event.preventDefault();
+    signin();
 }
 
 function signin() {
     const errorParagraph = document.getElementById("errorMessage");
-    errorParagraph.innerText = ""; // Clear previous error message
+    errorParagraph.innerText = "";
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
@@ -30,12 +30,12 @@ function signin() {
 
     for (let user of USERS) {
         if (user.email === email) {
-            userFound = true; // User exists
+            userFound = true;
             if (user.password === password) {
-                window.location.replace("home.html"); // Redirect to home
-                return; // Stop further execution
+                window.location.replace("home.html");
+                return;
             } else {
-                errorParagraph.innerText = "Invalid password. Please try again."; // Error message
+                errorParagraph.innerText = "Invalid password. Please try again.";
                 errorParagraph.style.color = "red";    
                 return;
             }
@@ -43,7 +43,7 @@ function signin() {
     }
 
     if (!userFound) {
-        errorParagraph.innerText = "User does not exist. Please try again."; // Error message
+        errorParagraph.innerText = "User does not exist. Please try again.";
         errorParagraph.style.color = "red";    
     }
 }

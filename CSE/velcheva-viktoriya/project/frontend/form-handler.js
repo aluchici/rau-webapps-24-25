@@ -1,15 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const signupForm = document.getElementById('step1Form'); // Use correct ID
+    const signupForm = document.getElementById('step1Form');
 
     if (signupForm) {
-        signupForm.addEventListener('submit', handleSignup); // Attach handler to the signup form
+        signupForm.addEventListener('submit', handleSignup);
     }
 });
 
 function handleSignup(event) {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault();
 
-    // Gather input values
     const firstName = document.getElementById('firstname').value;
     const lastName = document.getElementById('lastname').value;
     const dob = document.getElementById('dob').value;
@@ -18,7 +17,6 @@ function handleSignup(event) {
     const phone = document.getElementById('phone').value;
     const password = document.getElementById('password').value;
 
-    // Create a user object
     const userData = {
         first_name: firstName,
         last_name: lastName,
@@ -29,7 +27,6 @@ function handleSignup(event) {
         password: password
     };
 
-    // Send the data to the server
     fetch('http://127.0.0.1:5000/signup', {
         method: 'POST',
         headers: {
@@ -44,11 +41,11 @@ function handleSignup(event) {
         return response.json();
     })
     .then(data => {
-        alert(data.message); // Show success message
-        window.location.href = 'signin.html'; // Redirect to the local signin page
+        alert(data.message);
+        window.location.href = 'signin.html';
     })
     .catch((error) => {
         console.error('There was a problem with the fetch operation:', error);
-        alert('Signup failed: ' + error.message); // Inform user of the error
+        alert('Signup failed: ' + error.message);
     });
 }

@@ -2,12 +2,12 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    height: 100vh; /* Пълна височина на екрана */
-    display: flex; /* Използваме Flexbox за центриране */
-    justify-content: center; /* Центрирай по хоризонтала */
-    align-items: center; /* Центрирай по вертикала */
-    background: url('images/books2.jpg') no-repeat center center fixed; /* Фоново изображение */
-    background-size: cover; /* Покривай целия екран */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('images/books2.jpg') no-repeat center center fixed;
+    background-size: cover;
     position: relative;
     z-index: 1;
 }
@@ -18,27 +18,27 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0,7); /* Затъмняване на фона */
+    background-color: rgba(0, 0, 0, 0,7);
     z-index: 2;
 }
 
 .content {
-    position: relative; /* За да може текстът да е над overlay */
-    color: white; /* Цвят на текста */
-    text-align: left; /* Подравни текста наляво */
-    padding: 100px; /* Отстояние около съдържанието */
-    width: 100%; /* Пълна ширина */
-    z-index: 5; /* Увери се, че е над overlay */
+    position: relative;
+    color: white;
+    text-align: left;
+    padding: 100px;
+    width: 100%;
+    z-index: 5;
 }
 
 h1 {
-    font-size: 3rem; /* Размер на заглавието */
-    margin: 0; /* Премахни разстоянието */
+    font-size: 3rem;
+    margin: 0;
 }
 
 p {
-    font-size: 1.5rem; /* Размер на девиза */
-    margin-top: 10px; /* Добави малко разстояние отгоре */
+    font-size: 1.5rem;
+    margin-top: 10px; 
 }
 
 .vignette {
@@ -47,35 +47,32 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 70%); /* Затъмнение по ръбовете */
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 70%);
 }
 
 .signup-button {
-    display: inline-block; /* Да се държи като бутон */
-    background-color: white; /* Цвят на фона */
-    color: darkslategrey; /* Цвят на текста */
-    border: none; /* Премахване на граница */
-    padding: 10px 20px; /* Отстояние */
-    font-size: 1rem; /* Размер на шрифта */
-    cursor: pointer; /* Курсор при задържане */
-    border-radius: 5px; /* Закръглени ъгли */
-    text-decoration: none; /* Премахване на подчертаване */
-    margin-top: 20px; /* Отстояние над бутона */
+    display: inline-block;
+    background-color: white;
+    color: darkslategrey;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px; 
+    text-decoration: none;
+    margin-top: 20px; 
 }
 
-/* Ховър ефект за линка */
 .signup-button:hover {
-    background-color: gainsboro; /* Промяна на цвета при задържане */
+    background-color: gainsboro; 
 }
 
-
-/* Стил на Sign In линка */
 .signin-link {
-    position: absolute; /* Позиционирайте го абсолютно */
-    top: 20px; /* Задайте го точно в горната част */
-    right: 20px; /* Регулирайте хоризонталната позиция */
-    color: white; /* Цвят на текста */
-    text-decoration: underline; /* Подчертайте текста */
-    font-size: 1rem; /* Размер на шрифта */
-    z-index: 10; /* Уверете се, че е над другите елементи */
+    position: absolute; 
+    top: 20px; 
+    right: 20px;
+    color: white; 
+    text-decoration: underline; 
+    font-size: 1rem; 
+    z-index: 10; 
 }
