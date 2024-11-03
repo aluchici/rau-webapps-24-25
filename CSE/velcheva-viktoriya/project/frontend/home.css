@@ -554,3 +554,24 @@ button {
     color: white;
     margin-left: 0px;
 }
+
+.book-details {
+    position: relative; /* Ensure relative positioning */
+    padding-right: 30px; /* Add padding to the right for the button */
+}
+
+.delete-button {
+    background: none; /* Remove default button styling */
+    border: none; /* Remove border */
+    color: #8B4513; /* Change to your desired color */
+    font-size: 16px; /* Adjust size as needed */
+    cursor: pointer; /* Change cursor to pointer */
+    position: absolute; /* Position it absolutely */
+    right: -100px; /* Move it further to the right */
+    top: 5px; /* Adjust top positioning to align with text */
+}
+
+/* Ховър ефект за хикса */
+.book .delete-button:hover {
+    color: #8b5e3c; /* По-светъл кафяв при ховър */
+}
