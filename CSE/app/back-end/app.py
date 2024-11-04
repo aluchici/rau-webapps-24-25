@@ -1,11 +1,20 @@
 from datetime import datetime
 import json
 from flask import Flask, request, Response
+from flask_cors import CORS
 
 from entities import User 
+from storage import connect 
 
 app = Flask("app")
-
+CORS(app, 
+     resources={
+         r"/*": {"origins": "*"}
+        #  r"/signup": {
+        #      "origins": "https://myapp.com"
+        #  }
+        }
+    )
 
 @app.route("/", methods=["GET"])
 def home():
@@ -68,8 +77,9 @@ def signup():
     
     user = User()
     try:
+        connection = connect()
         user.from_dict(body)
-        user.get_by_email(email=user.email)
+        user.get_by_email(dbconnection=connection, email=user.email)
         if user.id is not None:
             response = Response(json.dumps({"error": f"User already exists."}),
                                 status=400,
@@ -79,12 +89,16 @@ def signup():
         user.is_active = 1
         user.created_at = datetime.now().timestamp()
         user.updated_at = user.created_at
-        user.insert()
-        user.get()
+        connection = connect()
+        user.insert(dbconnection=connection)
+
+        connection = connect()        
+        user.get_by_email(dbconnection=connection, email=user.email)
         response = Response(json.dumps({"data": {"id": user.id, "first_name": user.first_name}}),
                                 status=200,
                                 headers={"Content-Type": "application/json"})
     except Exception as e:
+        print(e)
         response = Response(json.dumps({"error": f"Something went wrong. Cause: {e}."}),
                             status=400,
                             headers={"Content-Type": "application/json"})

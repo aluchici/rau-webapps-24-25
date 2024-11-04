@@ -40,13 +40,26 @@ function signupStep1() {
     user.last_name = document.getElementById('lastname').value;
     user.email = document.getElementById('email').value;
     user.phone = document.getElementById('phone').value;
-
+    user.password = password.value;
+    
     const dob = document.getElementById('dob');
     const gender = document.getElementById('gender');
     user.dob = new Date(dob.value).getTime();
     user.gender = parseInt(gender.value);
-    console.log(user)
-    window.localStorage.setItem('user', JSON.stringify(user));
+    
+    // fetch(url, options).then().then().catch()
+    // Create new user
+    const url = "http://localhost:5001/signup"
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    };
+    fetch(url, options).then(responseArrived).then(responseBodyReceived).catch(errorHappened);
+
+    // window.localStorage.setItem('user', JSON.stringify(user));
     // window.location.replace("signup-2.html");
 }
 
@@ -65,7 +78,7 @@ function stopFormDefault(event) {
 
 function getData() {
     // fetch(url, options).then(f(x)).then(g(x)).catch(h(x))
-    const url = "http://localhost:5001/"
+    const url = "http://localhost:5001/version"
     const options = {
         method: "GET",
         headers: {
@@ -75,12 +88,21 @@ function getData() {
 
     fetch(url)
     .then(responseArrived)
+    .then(responseBodyReceived)
     .catch(errorHappened);
     console.log("Hello!!");
 }
 
 function responseArrived(response) {
     console.log("Success!!!");
+    console.log(response);
+    if (!response.ok) {
+        throw new Error("Failed to get data.");
+    }
+    return response.json();
+}
+
+function responseBodyReceived(response) {
     console.log(response);
 }
 
