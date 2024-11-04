@@ -1,17 +1,22 @@
 let user = window.localStorage.getItem('user');
 if (!user) {
     user = {
-        firstName: undefined,
-        lastName: undefined,
+        id: undefined,
+        first_name: undefined,
+        last_name: undefined,
         email: undefined,
         password: undefined,
         phone: undefined,
         dob: undefined,
-        gender: undefined
+        gender: undefined,
+        created_at: undefined,
+        updated_at: undefined,
+        is_active: undefined
     }
 } else {
     user = JSON.parse(user);
 }
+
 function signupStep1() {
     const password = document.getElementById('password');
     const confirmPassword = document.getElementById('confirm_password');
@@ -31,8 +36,8 @@ function signupStep1() {
         return;
     }
 
-    user.firstName = document.getElementById('firstname').value;
-    user.lastName = document.getElementById('lastname').value;
+    user.first_name = document.getElementById('firstname').value;
+    user.last_name = document.getElementById('lastname').value;
     user.email = document.getElementById('email').value;
     user.phone = document.getElementById('phone').value;
 
@@ -40,7 +45,7 @@ function signupStep1() {
     const gender = document.getElementById('gender');
     user.dob = dob.value;
     user.gender = gender.value;
-
+    
     window.localStorage.setItem('user', JSON.stringify(user));
     window.location.replace("signup-2.html");
 }
@@ -56,4 +61,30 @@ function stopFormDefault(event) {
     event.preventDefault();
     // actual logic, e.g. validate the form
     console.log('Form submission cancelled.');
+}
+
+function getData() {
+    // fetch(url, options).then(f(x)).then(g(x)).catch(h(x))
+    const url = "http://localhost:5001/"
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    fetch(url)
+    .then(responseArrived)
+    .catch(errorHappened);
+    console.log("Hello!!");
+}
+
+function responseArrived(response) {
+    console.log("Success!!!");
+    console.log(response);
+}
+
+function errorHappened(response) {
+    console.log("Error!!!");
+    console.log(response);
 }
