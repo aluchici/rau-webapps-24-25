@@ -1,0 +1,111 @@
+body
+{
+  font-family: 'Helvetica';
+  background-image: radial-gradient(circle, #4a3f41 , #8d0b20 );
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: auto;
+
+  
+}
+
+form 
+{
+    background: radial-gradient(circle, #4a3f41, #8d0b20);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(112, 103, 105, 0.5);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+h1
+{
+    margin-bottom: 5px;
+    font-size: 30px;
+    text-align: left;
+    color: #e7e3e4;
+}
+
+h2
+{
+    margin-bottom: 5px;
+    font-size: 30px;
+    text-align: left;
+    color: #e7e3e4;
+}
+
+h3
+{
+  margin-bottom: 5px;
+  font-size: 26px;
+  text-align: center;
+  color: #e7e3e4;
+}
+
+.form
+{
+  text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"],
+select {
+    width: 90%;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: rgba(231, 227, 228, 0.7);
+    color: #4a3f41;
+    border: 3px solid #4a3f41;
+    border-radius: 10px;
+    transition: border-color 0.3s;
+    align-self: center;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="password"]:focus,
+select:focus
+{
+    background-color: rgba(231, 227, 228,1);
+    outline: none;
+}
+
+input[type="file"],
+select
+{
+ color: rgba(0, 0, 0, 0);
+ align-self: center;
+}
+
+label,p,b
+{
+  text-align: ;
+  color: #e7e3e4;
+}
+a
+{
+  color: #c7c3c4;
+}
+.psw
+{
+  
+  text-align: right;
+}
+
+button 
+{
+    background-color: #e7e3e4;
+    color: #4a3f41;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}

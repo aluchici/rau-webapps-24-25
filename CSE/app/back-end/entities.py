@@ -24,6 +24,7 @@ class User:
     
     # === Initialisation and other utils or helper methods === #
     def from_tuple(self, user_tuple):
+        assert len(user_tuple) == 11
         self.id = user_tuple[0]
         self.first_name = user_tuple[1]
         self.last_name = user_tuple[2]
@@ -38,7 +39,7 @@ class User:
         return self
 
     def from_dict(self, user_dict):
-        self.id = user_dict["id"]
+        self.id = user_dict.get("id")
         self.first_name = user_dict["first_name"]
         self.last_name = user_dict["last_name"]
         self.dob = user_dict["dob"]
@@ -46,9 +47,9 @@ class User:
         self.phone = user_dict["phone"]
         self.email = user_dict["email"]
         self.password = user_dict["password"]
-        self.created_at = user_dict["created_at"]
-        self.updated_at = user_dict["updated_at"]
-        self.is_active = user_dict["is_active"]
+        self.created_at = user_dict.get("created_at")
+        self.updated_at = user_dict.get("updated_at")
+        self.is_active = user_dict.get("is_active")
         return self 
 
     def from_json(self, user_json):
@@ -83,6 +84,17 @@ class User:
         dbconnection.close()
         self.from_tuple(result)
         return self
+    
+    def get_by_email(self, dbconnection, table_name="users", email=None):
+        assert email is not None 
+        query = f"""SELECT * FROM {table_name} where email = '{email}'"""
+        cursor = dbconnection.cursor()
+        cursor.execute(query)
+        result = cursor.fetchone()
+        cursor.close()
+        dbconnection.close()
+        self.from_tuple(result)
+        return self 
     
     def insert(self, dbconnection, table_name="users"):
         query = f"""
