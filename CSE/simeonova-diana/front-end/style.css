@@ -52,6 +52,17 @@ select {
     transition: border-color 0.3s;
 }
 
+video {
+    width: 350px;
+    height: 200px;
+    background-color: black;
+    margin-bottom: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+
+
 .prog-bar {
     width: 100%;
     height: 20px; /* Set a specific height for better visibility */
@@ -94,6 +105,19 @@ select:focus {
     font-size: 16px;
 }
 
+#progress-bar{
+    border-radius: 12px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgb(145, 180, 180);
+    border-radius: 12px;
+}
+progress::-webkit-progress-value {
+    background-color:#e45c3a;
+    border-radius: 12px;
+}
+
 .secondary-button {
     background-color: #ffef5f;
     font-size: 14px;
@@ -106,6 +130,18 @@ select:focus {
 .primary-button:hover {
     background-color: #feb47b;
 }
+/* progress{
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+progress::-webkit-progress-bar {
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+progress::-webkit-progress-value {
+    background-color: #feb47b;
+    border-radius: 7px;
+} */
 label {
     display: block;
     margin-bottom: 10px;
@@ -144,71 +180,4 @@ a:hover {
         font-size: 14px;
     }
     
-}
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 89%;
-    background-color: rgba(128, 128, 128, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    z-index: 1;
-}
-
-.button-overlay {
-    background-color: rgba(255, 126, 95, 0.8);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    z-index: 2;
-}
-
-.button-overlay:hover {
-    background-color: rgba(255, 126, 95, 1);
-}
-
-/* Navbar Styles */
-header {
-    width: 100%; /* Full width */
-    background-color: rgba(255, 255, 255, 0.8); /* Light background with some transparency */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-}
-
-.navbar {
-    max-width: 1200px; /* Max width for the navbar */
-    margin: 0 auto; /* Center the navbar */
-    padding: 10px 20px; /* Padding for spacing */
-}
-
-.navbar ul {
-    list-style: none; /* Remove bullets */
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-around; /* Evenly space items */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-}
-
-.navbar li {
-    display: inline; /* Inline list items */
-}
-
-.navbar a {
-    text-decoration: none; /* Remove underline */
-    color: #cdb2f5; /* Link color */
-    font-size: 16px; /* Font size */
-    padding: 10px 15px; /* Padding around links */
-    transition: background-color 0.3s, color 0.3s; /* Transition for hover effects */
-}
-
-.navbar a:hover {
-    background-color: #cdb2f5; /* Background color on hover */
-    color: white; /* Change text color on hover */
-    border-radius: 5px; /* Rounded corners on hover */
 }
