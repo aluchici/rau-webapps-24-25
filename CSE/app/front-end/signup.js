@@ -43,11 +43,11 @@ function signupStep1() {
 
     const dob = document.getElementById('dob');
     const gender = document.getElementById('gender');
-    user.dob = dob.value;
-    user.gender = gender.value;
-    
+    user.dob = new Date(dob.value).getTime();
+    user.gender = parseInt(gender.value);
+    console.log(user)
     window.localStorage.setItem('user', JSON.stringify(user));
-    window.location.replace("signup-2.html");
+    // window.location.replace("signup-2.html");
 }
 
 function signupStep2() {
