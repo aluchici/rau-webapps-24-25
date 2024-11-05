@@ -8,7 +8,7 @@
 </head>
 <body class="background-style">
     <form id="step1Form">
-        <h1>Upload ID</h1><br>
+        <h1>Take a picture</h1><br>
         <h2>
             <progress class="prog-bar" id="progress-bar" value="100" max="100"></progress>
         </h2><br>
@@ -27,7 +27,7 @@
 
         <label id="fileLabel" for="upload_id">Choose an ID picture</label><br>
         <input type="file" id="upload_id" name="file" accept="image/*" onchange="updateFileName()"><br><br><br>
-        <button type="submit" class="button-base primary-button">Sign Up</button>
+        <button type="submit" class="button-base primary-button" onclick="handleIdUpload(event)">Sign Up</button>
     </form>
     <script src="signup-2.js"></script>
 </body>

@@ -11,13 +11,16 @@
 let user=window.localStorage.getItem("user");
 if(!user){
     user = {
-        fistName: undefined,
-        lastName: undefined,
+        first_name: undefined,
+        last_name: undefined,
         email: undefined,
+        phone: undefined,
         password: undefined,
+        created_at: undefined,
+        updated_at: undefined,
+        is_active: undefined,
         dob: undefined,
         gender: undefined,
-        phone: undefined
     };
 } else {
     user=JSON.parse(user);
@@ -47,16 +50,17 @@ function signupStep1() {
     }
 
     // form is valid, we can move to next step
-    user.fistName=document.getElementById("firstname").value;
-    user.lastName=document.getElementById("lastname").value;
+    user.first_name=document.getElementById("firstname").value;
+    user.last_name=document.getElementById("lastname").value;
     user.phone=document.getElementById("phone").value;
     user.email=document.getElementById("email").value;
     user.password=password.value;
 
     const dob=document.getElementById("dob");
     const gender=document.getElementById("gender");
-    user.dob=dob.value;
-    user.gender=gender.value;
+    user.dob=new Date(dob.value).getTime();
+    user.gender=parseInt(gender.value);
+    console.log(user);
 
     window.localStorage.setItem("user",JSON.stringify(user));
 
@@ -126,4 +130,32 @@ function updateFileName() {
     } else {
         fileLabel.textContent = 'Choose a file';
     }
+}
+
+function getData(){
+    // fetch(url, options).then(f(x)).catch(f(X))
+    const url="http://localhost:5001/"
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    fetch(url, options)
+        .then(responseArrived)
+        .catch(errorHappened);
+        console.log("Hello!!")
+}
+
+function responseArrived(response) {
+    setTimeout({}, 1000);
+    console.log("Success!!!");
+    console.log(response);
+}
+
+function errorHappened(response) {
+    setTimeout({}, 1000);
+    console.log("Error!!!");
+    console.log(response);
 }

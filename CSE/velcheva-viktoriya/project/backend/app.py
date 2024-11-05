@@ -1,10 +1,11 @@
 from datetime import datetime
 import json
-from flask import Flask, request, Response
-
+from flask import Flask, request, Response, jsonify
+from flask_cors import CORS
 from entities import User
 
-app = Flask("app")
+app = Flask(__name__)
+CORS(app)  # Allow all domains by default
 
 @app.route("/", methods=["GET"])
 def home():
@@ -16,77 +17,52 @@ def version():
         "version": "1.0.0",
         "requested_at": str(datetime.now())
     }
-    return response
+    return jsonify(response)
 
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
-    # 1. receive data
     body = request.json
-
-    # 2. validate data
-    keys = list(body.keys())
-    if not "email" in keys:
-        return Response(json.dumps({"error": "Invalid request. Email not sent."}), 
-                        status=400, 
-                        headers={"Content-Type": "application/json"})
+    if not body or "email" not in body or "password" not in body:
+        return jsonify({"error": "Invalid request. Email or password not sent."}), 400
     
-    if not "password" in keys:
-        return Response(json.dumps({"error": "Invalid request. Password not sent."}), 
-                        status=400, 
-                        headers={"Content-Type": "application/json"})
-    
-    # 3. check against the stored data
-    # 3.1 get the user data based on the provided email
-    # 3.2 if they exist => check that the user password matches the provided password
-    # 3.3 if they match => let them in
-    user=User()
+    user = User()
     try:
         user.get_by_email(email=body["email"])
-        if user.password==body["password"]:
-            response = Response(json.dumps({"data": {"id": user.id, "first_name": user.first_name}}),
-                                status=200,
-                                headers={"Content-Type": "application/json"})
+        if user.password == body["password"]:
+            return jsonify({"data": {"id": user.id, "first_name": user.first_name}}), 200
         else:
-            response = Response(json.dumps({"error": "User email or password are wrong."}),
-                          status=400,
-                          headers={"Content-Type":"application/json"})
-    except Exception as e:
-        response=Response(json.dumps({"error": "User missing."}),
-                          status=404,
-                          headers={"Content-Type":"application/json"})
-    # 4. return a response based on the result obtained at 3. 
-    return response
-    #Response({}, status=200, headers={"Content-Type": "application/json"})
+            return jsonify({"error": "User email or password are wrong."}), 400
+    except Exception:
+        return jsonify({"error": "User missing."}), 404
 
 @app.route("/signup", methods=["POST"])
 def signup():
-    body=request.json
-    
-    user=User()
+    body = request.json
+    user = User()
     try:
         user.from_dict(body)
         user.get_by_email(email=user.email)
         if user.id is not None:
-            response = Response(json.dumps({"error": "User already exists."}),
-                            status=400,
-                            headers={"Content-Type":"application/json"})
-            return response
+            return jsonify({"error": "User already exists."}), 400
         
-        user.is_active=1
-        user.created_at=datetime.now().timestamp()
-        user.updated_at=user.created_at
+        user.is_active = 1
+        user.created_at = datetime.now().timestamp()
+        user.updated_at = user.created_at
         user.insert()
         user.get()
-        response = Response(json.dumps({"data": {"id": user.id, "first_name": user.first_name}}),
-                                status=200,
-                                headers={"Content-Type": "application/json"})
+        return jsonify({"data": {"id": user.id, "first_name": user.first_name}}), 200
         
     except Exception as e:
-        response = Response(json.dumps({"error": "Something went wrong. Cause: {e}."}),
-                            status=400,
-                            headers={"Content-Type":"application/json"})
-    return response
+        return jsonify({"error": f"Something went wrong. Cause: {str(e)}."}), 400
 
+@app.route('/complete-signup', methods=['POST'])
+def complete_signup():
+    file = request.files.get('file')
+    photo = request.files.get('photo')
+    
+    if file and photo:
+        return jsonify({'message': 'Signup completed successfully!'}), 200
+    return jsonify({'error': 'Files are missing.'}), 400
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)

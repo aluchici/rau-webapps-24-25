@@ -24,7 +24,10 @@ class User:
     
     # === Initialisation and other utils or helper methods === #
     def from_tuple(self, user_tuple):
-        assert len(user_tuple)==11
+        # assert user_tuple is not None
+        # assert len(user_tuple) == 11
+        if user_tuple is None:
+            return
         self.id = user_tuple[0]
         self.first_name = user_tuple[1]
         self.last_name = user_tuple[2]
@@ -86,17 +89,17 @@ class User:
         return self
     
     def get_by_email(self, dbconnection, table_name="users", email=None):
-        assert email is not None
-        query=f"""SELECT * from {table_name} where email = '{email}' """
+        assert email is not None 
+        query = f"""SELECT * FROM {table_name} where email = '{email}'"""
         cursor = dbconnection.cursor()
         cursor.execute(query)
-        result=cursor.fetchone()
-        #dbconnection.commit()
+        result = cursor.fetchone()
         cursor.close()
         dbconnection.close()
         self.from_tuple(result)
-        return self
-
+        print(self.from_tuple(result))
+        return self 
+    
     def insert(self, dbconnection, table_name="users"):
         query = f"""
         INSERT INTO {table_name} (
@@ -143,49 +146,13 @@ class UserFile:
         self.selfie_url = None 
         self.user_id = None 
         self.created_at = None 
-        self.updated_at = None
-
-    def from_tuple(self, user_files_tuple):
-        self.id = user_files_tuple[0]
-        self.uploaded_image_url = user_files_tuple[1]
-        self.selfie_url = user_files_tuple[2]
-        self.user_id = user_files_tuple[3]
-        self.created_at = user_files_tuple[4]
-        self.updated_at = user_files_tuple[5]
-        return self
-
-    def from_dict(self, user_files_dict):
-        self.id = user_files_dict["id"]
-        self.uploaded_image_url = user_files_dict["uploaded_image_url"]
-        self.selfie_url = user_files_dict["selfie_url"]
-        self.user_id = user_files_dict["user_id"]
-        self.created_at = user_files_dict["created_at"]
-        self.updated_at = user_files_dict["updated_at"]
-        return self 
-
-    def from_json(self, user_files_json):
-        user_files_dict = json.loads(user_files_json)
-        return self.from_dict(user_files_dict)
-    
-    def to_dict(self):
-        user_files_dict = {
-            "id": self.id,
-            "uploaded_image_url": self.uploaded_image_url,
-            "selfie_url": self.selfie_url,
-            "user_id": self.user_id,
-            "created_at": self.created_at,
-            "updated_at": self.updated_at
-        }
-        return user_files_dict
-    
-    def to_json(self):
-        return json.dumps(self.to_dict())
+        self.updated_at = None  
     
     def insert(self, dbconnection, table_name="user_files"):
         query = f"""
         INSERT INTO {table_name} (
             uploaded_image_url, 
-            selfie_url, 
+            selfile_url, 
             user_id, 
             created_at, 
             updated_at
