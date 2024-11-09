@@ -1,3 +1,5 @@
 *.db
 *.pyc
 node_modules
+=======
+files/
