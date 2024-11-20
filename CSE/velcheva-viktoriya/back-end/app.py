@@ -1,10 +1,18 @@
 from datetime import datetime
 import json
+import os
+from time import sleep
 from flask import Flask, request, Response
 from flask_cors import CORS
 
 from entities import User 
 from storage import connect 
+
+
+FILE_STORAGE_PATH = "files"
+if not os.path.exists(FILE_STORAGE_PATH):
+    os.makedirs(FILE_STORAGE_PATH)
+    
 
 app = Flask("app")
 CORS(app, 
@@ -18,16 +26,17 @@ CORS(app,
 
 @app.route("/", methods=["GET"])
 def home():
+    sleep(300)
     return "<h1>Welcome to my page</h1>"
 
 
-@app.route("/version", methods=["GET"])
-def version():
-    response = {
-        "version": "1.0.0",
-        "requested_at": str(datetime.now())
-    }
-    return response
+# @app.route("/version", methods=["GET"])
+# def version():
+#     response = {
+#         "version": "1.0.0",
+#         "requested_at": str(datetime.now())
+#     }
+#     return response
 
 
 @app.route("/signin", methods=["GET", "POST"])
@@ -74,6 +83,7 @@ def signin():
 
 @app.route("/signup", methods=["POST"])
 def signup():
+    connection = connect()
     body = request.json
     
     user = User()
@@ -81,6 +91,7 @@ def signup():
         connection = connect()
         user.from_dict(body)
         user.get_by_email(dbconnection=connection, email=user.email)
+        
         if user.id is not None:
             response = Response(json.dumps({"error": f"User already exists."}),
                                 status=400,
@@ -93,16 +104,51 @@ def signup():
         connection = connect()
         user.insert(dbconnection=connection)
 
-        connection = connect()        
+        # Fetch the user again after insert to ensure the user object has the id and other fields.
         user.get_by_email(dbconnection=connection, email=user.email)
-        response = Response(json.dumps({"data": {"id": user.id, "first_name": user.first_name}}),
-                                status=200,
+        
+        if user.id is None:
+            response = Response(json.dumps({"error": "User not found after insert."}),
+                                status=404,
                                 headers={"Content-Type": "application/json"})
+            return response
+
+        # Return success response with user data
+        response = Response(json.dumps({"data": {"id": user.id, "first_name": user.first_name}}),
+                            status=200,
+                            headers={"Content-Type": "application/json"})
+        
     except Exception as e:
         print(e)
         response = Response(json.dumps({"error": f"Something went wrong. Cause: {e}."}),
                             status=400,
                             headers={"Content-Type": "application/json"})
+    return response
+
+@app.route("/upload", methods=["POST"])
+def upload():
+    if 'selfieFile' not in request.files:
+        response = Response(json.dumps({"error": f"Something went wrong. Cause: No file part."}),
+                            status=400,
+                            headers={"Content-Type": "application/json"})
+        return response
+    
+    file = request.files['selfieFile']
+    if file.filename == "":
+        response = Response(json.dumps({"error": f"Something went wrong. Cause: No selected file."}),
+                            status=400,
+                            headers={"Content-Type": "application/json"})
+        return response
+
+    file_path = os.path.join(FILE_STORAGE_PATH, file.filename)
+    file.save(file_path)
+
+    # TODO: HERE you add the logic to process the images + check if they are the same.
+
+    response = Response(json.dumps({"message": f"File {file.filename} successfully uploaded."}),
+                        status=200,
+                        headers={"Content-Type": "application/json"})
+    
     return response
 
 

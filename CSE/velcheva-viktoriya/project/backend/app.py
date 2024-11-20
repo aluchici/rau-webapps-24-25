@@ -1,8 +1,10 @@
 from datetime import datetime
 import json
+# from sqlite3 import connect
 from flask import Flask, request, Response, jsonify
 from flask_cors import CORS
 from entities import User
+from storage  import connect
 
 app = Flask(__name__)
 CORS(app)  # Allow all domains by default
@@ -38,18 +40,22 @@ def signin():
 @app.route("/signup", methods=["POST"])
 def signup():
     body = request.json
+    connection=connect()
     user = User()
+    print(body)
     try:
         user.from_dict(body)
-        user.get_by_email(email=user.email)
+        user.get_by_email(dbconnection=connection, email=user.email)
         if user.id is not None:
             return jsonify({"error": "User already exists."}), 400
         
         user.is_active = 1
         user.created_at = datetime.now().timestamp()
         user.updated_at = user.created_at
-        user.insert()
-        user.get()
+        connection=connect()
+        user.insert(dbconnection=connection)
+        connection=connect()
+        user.get_by_email(dbconnection=connection, email=user.email)
         return jsonify({"data": {"id": user.id, "first_name": user.first_name}}), 200
         
     except Exception as e:

@@ -24,7 +24,7 @@ class User:
     
     # === Initialisation and other utils or helper methods === #
     def from_tuple(self, user_tuple):
-        assert len(user_tuple)==11
+        # assert len(user_tuple)==11
         self.id = user_tuple[0]
         self.first_name = user_tuple[1]
         self.last_name = user_tuple[2]
@@ -82,8 +82,12 @@ class User:
         result = cursor.fetchone()
         cursor.close()
         dbconnection.close()
-        self.from_tuple(result)
-        return self
+        if result:
+            self.from_tuple(result)
+            return self
+        else:
+            print("User not found.")
+            return None
     
     def get_by_email(self, dbconnection, table_name="users", email=None):
         assert email is not None
@@ -94,8 +98,12 @@ class User:
         #dbconnection.commit()
         cursor.close()
         dbconnection.close()
-        self.from_tuple(result)
-        return self
+        if result:
+            self.from_tuple(result)
+            return self
+        else:
+            print("User with the given email not found.")
+            return self
 
     def insert(self, dbconnection, table_name="users"):
         query = f"""
@@ -253,5 +261,8 @@ if __name__ == "__main__":
     u = user.get(connection)
     print(u) 
 
-    print(u.to_dict())
-    print(u.to_json())
+    if u:
+        print(u.to_dict())
+        print(u.to_json())
+    else:
+        print("User not found in the database.")

@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function handleSignup(event) {
+    debugger
     event.preventDefault();
 
     const firstName = document.getElementById('firstname').value;
@@ -27,7 +28,7 @@ function handleSignup(event) {
         password: password
     };
 
-    fetch('http://127.0.0.1:5000/signup', {
+    fetch('http://localhost:5001/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -45,6 +46,8 @@ function handleSignup(event) {
         window.location.href = 'signin.html';
     })
     .catch((error) => {
+        console.log(error);
+        
         console.error('There was a problem with the fetch operation:', error);
         alert('Signup failed: ' + error.message);
     });
