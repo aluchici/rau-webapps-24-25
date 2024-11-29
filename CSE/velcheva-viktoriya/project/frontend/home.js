@@ -135,3 +135,33 @@ function deleteBook(title) {
 
     checkNoBooks();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Избери всички корици на книги
+    const bookCovers = document.querySelectorAll(".book img");
+    const modal = document.getElementById("review-modal");
+    const modalCover = document.getElementById("modal-book-cover");
+    const closeModalButton = document.querySelector(".modal .close");
+
+    // Добави обработчик на събития за всяка корица
+    bookCovers.forEach((cover) => {
+        cover.addEventListener("click", () => {
+            // Промени `src` на модалната корица
+            modalCover.src = cover.src;
+            // Покажи модалния прозорец
+            modal.style.display = "block";
+        });
+    });
+
+    // Затваряне на модалния прозорец
+    closeModalButton.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    // Скриване на модала при клик извън него
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
