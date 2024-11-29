@@ -170,6 +170,18 @@ nav {
     margin-left: 0px;
 }
 
+#addButton {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background-color: #713a13;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 0px;
+}
+
 .add-book-button:hover {
     background-color: #a6744e;
 }
@@ -457,7 +469,6 @@ button {
     background-color: #A0522D;
 }
 
-/* Скрита модалка по подразбиране */
 .modal {
     display: none;
     position: fixed;
@@ -471,10 +482,9 @@ button {
   }
 
   .modal.show {
-    display: block; /* Показване на модалката */
+    display: block;
   }
   
-  /* Съдържание на модалката */
   .modal-content {
     background-color: #fff;
     margin: 10% auto;
@@ -530,3 +540,19 @@ button {
     cursor: pointer;
   }
   
+  #modal-book-cover {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    width: 100px;
+    height: 150px;
+    margin-right: 20px;
+}
+
+#book-review {
+    height: 150px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}

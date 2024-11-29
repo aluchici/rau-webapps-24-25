@@ -102,20 +102,50 @@
 
         <div id="review-modal" class="modal">
             <div class="modal-content">
-              <span class="close" onclick="closeReviewModal()">&times;</span>
-              <img id="modal-book-cover" src="" alt="Book Cover" />
-              <input type="text" id="book-title" placeholder="Enter title" />
-              <input type="text" id="book-author" placeholder="Enter author" />
-              <textarea id="book-review" placeholder="Write your review"></textarea>
-              <div class="modal-buttons">
-                <button id="discardButton" onclick="discardReview()">Discard</button>
-                <button id="addButton" onclick="addReview()">Add</button>
-              </div>
+                <span class="close">&times;</span>
+                <img id="modal-book-cover" src="" alt="Book Cover" />
+                <input type="text" id="book-Title" placeholder="Enter title" />
+                <input type="text" id="book-Author" placeholder="Enter author" />
+                <textarea id="book-review" placeholder="Write your review"></textarea>
+                <div class="modal-buttons">
+                    <button id="discardReviewButton">Discard</button>
+                    <button id="addButton">Add</button>
+                </div>
             </div>
-          </div>
+        </div>        
 
         <div class="review-container">
-            <div class="review-section">
+            <!--here-->
+            <div class="review-section" id="newReviewPlaceholder" style="display: none;">
+                <div class="review-header">
+                    <img src="./images/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg" alt="User Profile" class="user-profile">
+                    <span class="user-name">This User</span>
+                </div>
+                <div class="review-body">
+                    <img src="./images/your-chosen-book-cover.jpg" alt="Book Cover" class="book-cover">
+                    <div class="book-details">
+                        <h3 class="book-title" id="newBookTitle">New Book Title</h3>
+                        <p class="review-text" id="newReviewText">
+                            'This is a new review...'
+                            <a href="#" class="more-link">More...</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="review-footer">
+                    <span class="like-count" style="display: none;">
+                        <img src="./images/25297.png" alt="Thumbs Up" class="thumb-icon">
+                        <span class="like-number">1</span>
+                    </span>
+                    <a href="#" class="action-link like-link" onclick="likeReview(this)">Like</a>
+                    <a href="#" class="action-link">Comment</a>
+                </div>
+                <div class="comment-section">
+                    <img src="./images/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg" alt="Your Profile" class="comment-profile">
+                    <input type="text" placeholder="Leave a comment..." class="comment-input">
+                </div>
+            </div>
+            <!--here-->
+            <div class="review-section" id="review1">
                 <div class="review-header">
                     <img src="./images/Woman_at_Lover's_Bridge_Tanjung_Sepat_(cropped).jpg" alt="User Profile" class="user-profile">
                     <span class="user-name">Anne James</span>

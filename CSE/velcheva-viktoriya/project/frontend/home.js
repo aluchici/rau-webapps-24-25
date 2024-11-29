@@ -44,8 +44,8 @@ function addBook(title, author, cover) {
     newBookElement.innerHTML = `
         <img src="${cover}" alt="${title} Cover">
         <div class="book-details">
-            <p class="book-title">${title}</p>
-            <p class="book-author">by ${author}</p>
+            <p class="bookTitle">${title}</p>
+            <p class="bookAuthor">by ${author}</p>
             <button class="delete-button" onclick="deleteBook('${title}')">X</button>
         </div>
     `;
@@ -77,8 +77,8 @@ function loadBooksFromLocalStorage() {
 }
 
 function clearInputs() {
-    document.getElementById('bookTitle').value = '';
-    document.getElementById('bookAuthor').value = '';
+    document.getElementById('book-Title').value = '';
+    document.getElementById('book-Author').value = '';
     document.getElementById('coverPreview').style.backgroundImage = 'none';
     document.getElementById('coverPreview').textContent = 'Cover Image Here';
 }
@@ -128,7 +128,7 @@ function deleteBook(title) {
     const bookList = document.querySelector('.book-list');
     const bookElements = bookList.querySelectorAll('.book');
     bookElements.forEach(book => {
-        if (book.querySelector('.book-title').textContent === title) {
+        if (book.querySelector('.bookTitle').textContent === title) {
             bookList.removeChild(book);
         }
     });
@@ -137,31 +137,42 @@ function deleteBook(title) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Избери всички корици на книги
-    const bookCovers = document.querySelectorAll(".book img");
-    const modal = document.getElementById("review-modal");
+    const reviewModal = document.getElementById("review-modal");
     const modalCover = document.getElementById("modal-book-cover");
-    const closeModalButton = document.querySelector(".modal .close");
+    const closeReviewModalButton = reviewModal.querySelector(".close");
+    const discardReviewButton = document.getElementById("discardReviewButton");
+    const titleField = document.getElementById("book-Title");
+    const authorField = document.getElementById("book-Author");
+    const reviewField = document.getElementById("book-review");
 
-    // Добави обработчик на събития за всяка корица
+    function clearInputs() {
+        titleField.value = '';
+        authorField.value = '';
+        reviewField.value = '';
+
+    }
+
+    const bookCovers = document.querySelectorAll(".book img");
     bookCovers.forEach((cover) => {
         cover.addEventListener("click", () => {
-            // Промени `src` на модалната корица
             modalCover.src = cover.src;
-            // Покажи модалния прозорец
-            modal.style.display = "block";
+            reviewModal.style.display = "block";
         });
     });
 
-    // Затваряне на модалния прозорец
-    closeModalButton.addEventListener("click", () => {
-        modal.style.display = "none";
+    closeReviewModalButton.addEventListener("click", () => {
+        reviewModal.style.display = "none";
     });
 
-    // Скриване на модала при клик извън него
+    discardReviewButton.addEventListener("click", () => {
+        clearInputs();
+        reviewModal.style.display = "none";
+    });
+
     window.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
+        if (event.target === reviewModal) {
+            reviewModal.style.display = "none";
         }
     });
 });
+
