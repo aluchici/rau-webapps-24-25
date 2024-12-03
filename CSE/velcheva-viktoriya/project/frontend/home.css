@@ -248,6 +248,21 @@ nav {
     margin-right: 10px;
 }
 
+.details-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.details-container input,
+.details-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 .book-details {
     max-width: 400px;
 }
@@ -490,69 +505,95 @@ button {
     margin: 10% auto;
     padding: 20px;
     border-radius: 10px;
-    width: 40%;
+    width: 50%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  }
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
   
-  .modal-content img {
+.modal-content img {
     display: block;
     margin: 0 auto 10px;
     width: 100px;
     height: auto;
-  }
+}
   
-  .modal-content input,
-  .modal-content textarea {
+.modal-content input,
+.modal-content textarea {
     width: 100%;
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
+}
   
-  .modal-buttons {
+.modal-buttons {
     display: flex;
-    justify-content: space-between;
-  }
-  
-  .modal-buttons button {
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-buttons button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
+    background-color: #A0522D;
+    color: white;
     cursor: pointer;
-  }
+}
   
-  .modal-buttons button:first-child {
+.modal-buttons button:first-child {
     background-color: #A0522D;
     color: white;
-  }
+}
   
-  .modal-buttons button:last-child {
+.modal-buttons button:last-child {
     background-color: #A0522D;
     color: white;
-  }
+}
   
-  .close {
+.close {
     position: absolute;
     top: 10px;
     right: 15px;
     font-size: 20px;
     cursor: pointer;
-  }
-  
-  #modal-book-cover {
-    display: block;
-    margin-left: 0;
-    margin-right: auto;
-    width: 100px;
-    height: 150px;
-    margin-right: 20px;
+}
+
+#modal-book-cover {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 #book-review {
     height: 150px;
-    padding: 10px;
+    resize: none;
     font-size: 14px;
+}
+
+.modal-buttons button:hover {
+    background-color: #8B4513;
+}
+
+#discardReviewButton,
+#addReviewButton {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    background-color: #713a13;
+    color: white;
+    border: none;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    cursor: pointer;
+    margin-left: 0px;
 }
