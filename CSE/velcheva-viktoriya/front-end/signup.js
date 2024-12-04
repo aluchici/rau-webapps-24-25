@@ -1,129 +1,117 @@
-// const user = {
-//     fistName: undefined,
-//     lastName: undefined,
-//     email: undefined,
-//     password: undefined,
-//     dob: undefined,
-//     gender: undefined,
-//     phone: undefined
-// };
-
-let user=window.localStorage.getItem("user");
-if(!user){
+let user = window.localStorage.getItem('user');
+if (!user) {
     user = {
-        fistName: undefined,
-        lastName: undefined,
+        id: undefined,
+        first_name: undefined,
+        last_name: undefined,
         email: undefined,
         password: undefined,
+        phone: undefined,
         dob: undefined,
         gender: undefined,
-        phone: undefined
-    };
+        created_at: undefined,
+        updated_at: undefined,
+        is_active: undefined
+    }
 } else {
-    user=JSON.parse(user);
+    user = JSON.parse(user);
 }
 
 function signupStep1() {
-
-    // below is called form validation
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirm_password");
-
-    if(password.value == "" || (password.value != confirmPassword.value)){
-        console.log("Passwords don't match.");
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirm_password');
+    if (password.value == "" || (password.value != confirmPassword.value)) {
+        console.log("passwords are different");
         return;
     }
 
-
-    const terms=document.getElementById("terms");
-    if(!terms.checked){
-        console.log("Terms not checked");
+    const terms = document.getElementById('terms');
+    if (!terms.checked) {
+        console.log("terms policies must be agreed upon");
         return;
     }
-    const privacy=document.getElementById("privacy");
-    if(!privacy.checked){
-        console.log("Privacy not checked");
+    const privacy = document.getElementById('privacy');
+    if (!privacy.checked) {
+        console.log("privacy policies must be agreed upon");
         return;
     }
 
-    // form is valid, we can move to next step
-    user.fistName=document.getElementById("firstname").value;
-    user.lastName=document.getElementById("lastname").value;
-    user.phone=document.getElementById("phone").value;
-    user.email=document.getElementById("email").value;
-    user.password=password.value;
+    user.first_name = document.getElementById('firstname').value;
+    user.last_name = document.getElementById('lastname').value;
+    user.email = document.getElementById('email').value;
+    user.phone = document.getElementById('phone').value;
+    user.password = password.value;
+    
+    const dob = document.getElementById('dob');
+    const gender = document.getElementById('gender');
+    user.dob = new Date(dob.value).getTime();
+    user.gender = parseInt(gender.value);
+    console.log(user);
+    
+    // fetch(url, options).then().then().catch()
+    // Create new user
+    const url = "http://localhost:5001/signup"
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    };
+    fetch(url, options).then(responseArrived).then(responseBodyReceived).catch(errorHappened);
 
-    const dob=document.getElementById("dob");
-    const gender=document.getElementById("gender");
-    user.dob=dob.value;
-    user.gender=gender.value;
+    // window.localStorage.setItem('user', JSON.stringify(user));
+    // window.location.replace("signup-2.html");
+}
 
-    window.localStorage.setItem("user",JSON.stringify(user));
-
-    window.location.replace("signup-2.html");
+function signupStep2() {
+   
 }
 
 const form = document.querySelector('form');
 form.addEventListener('submit', stopFormDefault);
 
-function stopFormDefault(event){
+function stopFormDefault(event) {
     event.preventDefault();
-    //actual logic, e.g. validate the form
+    // actual logic, e.g. validate the form
     console.log('Form submission cancelled.');
 }
 
-//the progress bar
-//the camera box
-
-document.addEventListener('DOMContentLoaded', function() {
-    signupStep2();
-});
-
-function signupStep2() {
-    const startCameraButton = document.getElementById('startCameraButton');
-    const video = document.getElementById('video');
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    const takePhotoButton = document.getElementById('takePhotoButton');
-    const overlay = document.getElementById('overlay');
-
-    startCameraButton.addEventListener('click', async (event) => {
-        event.preventDefault();
-
-        try {
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-            video.srcObject = stream;
-
-            overlay.style.display = 'none';
-            takePhotoButton.style.display = 'block';
-        } catch (err) {
-            console.error('Error accessing the camera: ', err);
+function getData() {
+    // fetch(url, options).then(f(x)).then(g(x)).catch(h(x))
+    const url = "http://localhost:5001/version"
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
         }
-    });
+    }
 
-    takePhotoButton.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-        const imageUrl = canvas.toDataURL('image/png');
-        const link = document.createElement('a');
-        link.href = imageUrl;
-        link.download = 'photo.png';
-        link.click();
-    });
+    fetch(url)
+    .then(responseArrived)
+    .then(responseBodyReceived)
+    .catch(errorHappened);
+    console.log("Hello!!");
 }
 
-function updateFileName() {
-    const fileInput = document.getElementById('upload_id');
-    const fileLabel = document.getElementById('fileLabel');
-
-    if (fileInput.files.length > 0) {
-        fileLabel.textContent = fileInput.files[0].name;
-    } else {
-        fileLabel.textContent = 'Choose a file';
+function responseArrived(response) {
+    if (!response.ok) {
+        throw new Error("Failed to get data.");
     }
+    return response.json();
+}
+
+function responseBodyReceived(response) {
+    if (response.data && response.data.id) {
+        window.localStorage.setItem('user-id', response.data.id);
+        window.localStorage.setItem('user-first-name', response.data.first_name);
+        window.location.replace("signup-2.html");
+    } else {
+        console.log("Error: User data is missing from the response");
+    }
+}
+
+function errorHappened(response) {
+    console.log("Error!!!");
+    console.log(response);
 }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body class="background-style">
+    <form class="signup-form">
+        <h1>Sign In</h1><br><br>
+        <input type="text" id="email" name="email" placeholder="Email" required><br>
+        <input type="password" id="password" name="password" placeholder="Password" required><br><br>
+        <div class="text" id="error-message" style="display: none; margin-bottom: 20px;">
+            <p>There was an error. Try again later.</p>
+        </div>        
+        <button type="submit" class="button-base primary-button">Sign in</button>
+        <p id="errorMessage"></p><br><br>
+        <p>If you don't have an account, please create one <a href="signup-1.html">here.</a></p>
+    </form>
+    <script src="auth.js"></script> 
+    <script src="form-handler.js"></script>
+    <script src="signin.js"></script>
+    <script src="server.js"></script>
+</body>
+</html>

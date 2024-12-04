@@ -1,7 +1,7 @@
 import sqlite3
 
 def connect():
- return sqlite3.connect("D:\\ERASMUS\\Web Applications Programming\\RAU-webapps-24-25\\rau-webapps-24-25-vv\\CSE\\velcheva-viktoriya\\back-end\\app.db")
+ return sqlite3.connect("D:\\ERASMUS\\Web Applications Programming\\RAU-webapps-24-25\\rau-webapps-24-25-vv\\CSE\\velcheva-viktoriya\\project\\backend\\app.db")
 
 connection = connect()
 
@@ -40,8 +40,8 @@ cursor.close()
 # 6. close connection (optional, ideal)
 connection.close()
 
-# === CREATE USER FILES TABLE === #
-query = """CREATE TABLE IF NOT EXISTS user_files (
+# CREATE USER FILES TABLE
+query = """CREATE TABLE IF NOT EXISTS user_files(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     uploaded_image_url VARCHAR,
     selfie_url VARCHAR,
@@ -51,7 +51,7 @@ query = """CREATE TABLE IF NOT EXISTS user_files (
 );
 """
 connection = connect()
-cursor = connection.cursor()
+cursor=connection.cursor()
 cursor.execute(query)
 connection.commit()
 cursor.close()

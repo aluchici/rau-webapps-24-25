@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form id="form">
+        <h1>Sign Up</h1>
+        <input type="firstname" id="firstname" name="firstname" placeholder="First name" required>
+        <input type="lastname" id="lastname" name="lastname" placeholder="Last name" required>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected hidden>Select gender</option>
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+            <option value="2">Other</option>
+        </select>
+        <input type="text" id="email" name="email" placeholder="Email" required>
+        <input type="text" id="phone" name="phone" placeholder="Phone" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" required>
+
+        <label for="terms">
+            <input type="checkbox" id="terms" name="terms" required>Terms and Conditions
+        </label>
+        <label for="data">
+            <input type="checkbox" id="data" name="data" required>Trust you with my data
+        </label>
+
+        <button type="submit" onclick="registerUser(event)">Sign up</button>
+    </form>
+    <p id="resultMessage"></p>
+    <script src="implementaform.js"></script>
+</body>
+</html>
