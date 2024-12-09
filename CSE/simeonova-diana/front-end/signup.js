@@ -16,7 +16,6 @@ if (!user) {
 } else {
     user = JSON.parse(user);
 }
-
 function signupStep1() {
     const password = document.getElementById('password');
     const confirmPassword = document.getElementById('confirm_password');
@@ -35,7 +34,7 @@ function signupStep1() {
         console.log("privacy policies must be agreed upon");
         return;
     }
-
+    
     user.first_name = document.getElementById('firstname').value;
     user.last_name = document.getElementById('lastname').value;
     user.email = document.getElementById('email').value;
@@ -46,21 +45,26 @@ function signupStep1() {
     const gender = document.getElementById('gender');
     user.dob = new Date(dob.value).getTime();
     user.gender = parseInt(gender.value);
-    
-    // fetch(url, options).then().then().catch()
-    // Create new user
-    const url = "http://localhost:5001/signup"
+    // user.is_active = 1;
+
+    //fetch(url, options).then().then().catch()
+
+    const url = "http://localhost:5001/signup";
     const options = {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(user)
-    };
-    fetch(url, options).then(responseArrived).then(responseBodyReceived).catch(errorHappened);
+    }
 
-    // window.localStorage.setItem('user', JSON.stringify(user));
-    // window.location.replace("signup-2.html");
+    fetch(url, options)
+    .then(responseArrived)
+    .then(responseBodyRecieved)
+    .catch(errorHappened);
+
+    window.localStorage.setItem('user', JSON.stringify(user));
+//     window.location.replace("signup-2.html");
 }
 
 function signupStep2() {
@@ -76,6 +80,7 @@ function stopFormDefault(event) {
     console.log('Form submission cancelled.');
 }
 
+
 function getData() {
     // fetch(url, options).then(f(x)).then(g(x)).catch(h(x))
     const url = "http://localhost:5001/version"
@@ -88,22 +93,23 @@ function getData() {
 
     fetch(url)
     .then(responseArrived)
-    .then(responseBodyReceived)
+    .then(responseBodyRecieved)
     .catch(errorHappened);
     console.log("Hello!!");
 }
 
-function responseArrived(response) {
-    if (!response.ok) {
-        throw new Error("Failed to get data.");
-    }
-    return response.json();
+function responseBodyRecieved(response) {
+    console.log(response);
+    
 }
 
-function responseBodyReceived(response) {
-    window.localStorage.setItem('user-id', response.data.id);
-    window.localStorage.setItem('user-first-name', response.data.first_name);
-    window.location.replace("signup-2.html");
+function responseArrived(response) {
+    console.log("Success!!!");
+    console.log(response);
+    if (!response.ok) {
+        throw new Error("failed to get data");
+    }
+    return response.json();
 }
 
 function errorHappened(response) {

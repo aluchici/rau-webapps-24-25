@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<!style>
+        input[type="text"]{
+            font-size: 18px;
+            border: solid 5px;
+            border-color: salmon;
+            border-radius: 5%;
+            margin-bottom: 1%;
+        }
+        
+        button{
+            border-radius: 20px;
+            color: white;
+            background-color: green;
+        }
+        button:hover{
+            font-size:25px;
+        }
+        p,
+        span{
+            font-size: 18px;
+        }
+        div > h1{
+            font-size: 17px;
+        }
+        h1{
+            font-size: 29px;
+        }
+    </style-->
+    
+    <link rel="stylesheet" href ="style.css">
+</head>
+
+<body>
+    <!-- logo area-->
+    <div>
+        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FCars_%2528franchise%2529&psig=AOvVaw0ld2V5Xt4iq1g6NGVP0k6d&ust=1730378938012000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDgkYGStokDFQAAAAAdAAAAABAE" alt="logo">
+    </div>
+
+    <!-- form area-->
+    <div>
+    
+        <h1 style="color: lime; font-size: 50 px; font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Welcome to OnlyFelony!</h1>
+        <form>
+            <input class = "default-text" type="text" placeholder="First Name"> <br>
+            <input class = "default-text" type="text" placeholder="Last Name"> <br>
+            <!-- Add selection for gender, Options: Female, Male, Other-->
+            <select>
+                <option disabled selected hidden>Gender</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Other">Other</option>
+            </select> <br>
+            <input type="date" placeholder="Date of Birth"> <br>
+            <input type="number" placeholder="ID Number(CNP)"> <br>
+            <input type="email" placeholder="Email"> <br>
+            <input type="password" placeholder="Password"> <br>
+            <input type="password" placeholder="Confirm Password"> <br>
+            <input type="checkbox">
+            <span class="main-span">I agree with the <a href="tc.html"> T&C</a></span> <br>
+            <input type="checkbox">
+            <span class="secondary-span">I agree with the <a href="pp.html"></a>privacy policy</span> <br>
+            <button>Sign up</button><br>
+            <p>Already have an account? <a href="login.html">Log in</a></p> <br>
+        </form>
+    </div>
+</body>
+</html>

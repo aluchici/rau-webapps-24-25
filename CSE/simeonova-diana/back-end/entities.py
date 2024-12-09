@@ -97,6 +97,7 @@ class User:
         cursor.close()
         dbconnection.close()
         self.from_tuple(result)
+        print(self.from_tuple(result))
         return self 
     
     def insert(self, dbconnection, table_name="users"):

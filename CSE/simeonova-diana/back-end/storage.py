@@ -1,8 +1,8 @@
 import sqlite3
 
 def connect():
-    # return sqlite3.connect("D:\\web apps\\rau-webapps-24-25\\CSE\\simeonova-diana\\back-end\\app.db")
-    return sqlite3.connect("D:\\LUCHICI\\24-25 - CSE - A3 - Web Applications Programming\\rau-webapps-24-25\\CSE\\app\\back-end\\app.db")
+    return sqlite3.connect("D:\\web apps\\rau-webapps-24-25\\CSE\\simeonova-diana\\back-end\\app.db")
+    # return sqlite3.connect("D:\\LUCHICI\\24-25 - CSE - A3 - Web Applications Programming\\rau-webapps-24-25\\CSE\\app\\back-end\\app.db")
 
 connection = connect()
 
