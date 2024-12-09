@@ -3,7 +3,9 @@ from pymongo import MongoClient
 from dotenv import load_dotenv 
 import json 
 
-config = json.loads("config.json")
+with open("config.json", "r") as f:
+    config = json.load(f)
+
 load_dotenv() 
 
 def get_database():
