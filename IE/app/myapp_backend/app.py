@@ -1,3 +1,4 @@
+import traceback
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from bson.json_util import dumps
@@ -43,35 +44,58 @@ def signin():
         return jsonify({"success": True, "user_id": user_id}), 200
 
     except ValueError as e:
+        traceback.print_exc()
         return jsonify({"error": str(e)}), 401
     except Exception as e:
+        traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
 
-@app.route('/api/projects', methods=['GET'])
+@app.route('/api/projects', methods=['GET', 'POST'])
 def get_projects():
-    user_id = request.args.get('user_id')
+    if request.method == "GET":
+        user_id = request.args.get('user_id')
 
-    if not user_id:
-        return jsonify({"error": "user_id is required"}), 400
+        if not user_id:
+            return jsonify({"error": "user_id is required"}), 400
 
-    try:
-        projects = project_model.get_projects_by_user(user_id)
-        # Transform ObjectId to string for JSON serialization
-        projects = [
-            {
-                "id": str(project["_id"]),
-                "name": project["name"],
-                "lastUpdated": project["last_updated"],
-                "labelledExamples": project.get("labelled_examples", 0),
-                "totalExamples": project.get("total_examples", 0)
+        try:
+            projects = project_model.get_projects_by_user(user_id)
+            # Transform ObjectId to string for JSON serialization
+            projects = [
+                {
+                    "id": str(project["_id"]),
+                    "name": project["name"],
+                    "lastUpdated": project["last_updated"],
+                    "labelledExamples": project.get("labelled_examples", 0),
+                    "totalExamples": project.get("total_examples", 0)
+                }
+                for project in projects
+            ]
+            return jsonify(projects), 200
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+        
+    if request.method == "POST": 
+        body = request.json 
+        project_name = body.get("name", "Undefined")
+        user_id = body.get("user_id")
+        if user_id is None:
+            return jsonify({"error": "Missing user ID"}), 400
+
+        try:
+            new_project = project_model.create_project(project_name, user_id)
+            new_project = {
+                "id": str(new_project["_id"]),
+                "name": new_project["name"],
+                "lastUpdated": new_project["last_updated"],
+                "labelledExamples": new_project.get("labelled_examples", 0),
+                "totalExamples": new_project.get("total_examples", 0)
             }
-            for project in projects
-        ]
-        return jsonify(projects), 200
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-    
+            return jsonify(new_project), 200
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+
 
 @app.route('/api/projects/<project_id>/entries', methods=['GET'])
 def get_project_entries(project_id):

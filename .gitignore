@@ -3,6 +3,7 @@
 
 # dependencies
 /node_modules
+/IE/app/myapp/node_modules
 /.pnp
 .pnp.js
 
