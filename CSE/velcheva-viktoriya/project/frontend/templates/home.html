@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="/frontend/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -35,7 +35,7 @@
         <div class="left-column">
             <div id="currently-reading">
                 <h2>Currently Reading</h2>
-                <div class="book-list">
+                <div class="book-list" id="book-list">
                     <div id="noBooksMessage" style="display: none;">No added books</div>
                     <div class="book">
                         <img src="./images/_-_-_-_9789542845546_1.jpg" alt="Book 1 Cover">
@@ -61,7 +61,7 @@
                         <div id="coverPreview" class="cover" style="width: 80px; height: 120px; background-color: #f0f0f0;">
                             Add a cover image
                         </div>
-                        <input type="file" id="coverInput" accept="image/*" style="display:none;">
+                        <input type="file" id="bookCoverInput" accept="image/*" style="display:none;">
                         <div class="input-container">
                             <input type="text" id="bookTitle" placeholder="Book Title">
                             <input type="text" id="bookAuthor" placeholder="Author">

@@ -663,3 +663,31 @@ button {
     background-color: #e0e0e0; /* Леко потъмнява при ховърване */
     color: #3e2723; /* Потъмняващ текст при ховър */
 }
+
+.book {
+    position: relative; /* За да се позиционира delete-button спрямо тази книга */
+}
+
+.delete-button {
+    position: absolute;
+    top: 5px; /* Разстояние от горния ръб на книгата */
+    right: 5px; /* Разстояние от десния ръб на книгата */
+    background: none;
+    border: none;
+    color: #5a3e36; /* Тъмнокафяво */
+    font-size: 14px; /* Размер на текста */
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #e6e6e6; /* Мръсно бяло при задържане на курсора */
+}

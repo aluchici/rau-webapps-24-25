@@ -21,6 +21,14 @@ query = """CREATE TABLE IF NOT EXISTS users (
     is_active INTEGER
 );
 """
+query = """CREATE TABLE IF NOT EXISTS books (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    author TEXT NOT NULL,
+    cover_image TEXT NOT NULL,
+    created_at DATETIME NOT NULL
+);
+"""
 
 # 2. add values to the query (depending on the situation)
 
