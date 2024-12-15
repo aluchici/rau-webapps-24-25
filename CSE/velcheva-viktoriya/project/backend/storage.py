@@ -1,12 +1,11 @@
 import sqlite3
 
 def connect():
- return sqlite3.connect("D:\\ERASMUS\\Web Applications Programming\\RAU-webapps-24-25\\rau-webapps-24-25-vv\\CSE\\velcheva-viktoriya\\project\\backend\\app.db")
+    return sqlite3.connect("D:\\ERASMUS\\Web Applications Programming\\RAU-webapps-24-25\\rau-webapps-24-25-vv\\CSE\\velcheva-viktoriya\\project\\backend\\app.db")
 
 connection = connect()
 
-# Database interaction example
-# 1. create a query (define)
+# Създаване на таблица 'users'
 query = """CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name VARCHAR,
@@ -18,49 +17,43 @@ query = """CREATE TABLE IF NOT EXISTS users (
     password VARCHAR,
     created_at TIMESTAMP,
     updated_at TIMESTAMP,
-    is_active INTEGER
-);
-"""
-query = """CREATE TABLE IF NOT EXISTS books (
+    is_active INTEGER,
+    is_admin INTEGER DEFAULT 1
+);"""
+
+# Създаване на таблица 'books'
+query_books = """CREATE TABLE IF NOT EXISTS books (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
     author TEXT NOT NULL,
     cover_image TEXT NOT NULL,
     created_at DATETIME NOT NULL
-);
-"""
+);"""
 
-# 2. add values to the query (depending on the situation)
-
-# 3. run the query 
-# 3.1. create a cursor 
-cursor = connection.cursor()
-
-# 3.2. use the cursor to run the query 
-cursor.execute(query)
-
-# 4. commit the results (if you update the database)
-connection.commit()
-
-# 5. close cursor (optional, ideal)
-cursor.close() 
-
-# 6. close connection (optional, ideal)
-connection.close()
-
-# CREATE USER FILES TABLE
-query = """CREATE TABLE IF NOT EXISTS user_files(
+# Създаване на таблица 'user_files'
+query_files = """CREATE TABLE IF NOT EXISTS user_files(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     uploaded_image_url VARCHAR,
     selfie_url VARCHAR,
     user_id INTEGER,
     created_at TIMESTAMP,
     updated_at TIMESTAMP
-);
-"""
-connection = connect()
-cursor=connection.cursor()
-cursor.execute(query)
-connection.commit()
-cursor.close()
-connection.close()
+);"""
+
+try:
+    cursor = connection.cursor()
+    # Изпълняване на SQL заявките
+    cursor.execute(query)
+    cursor.execute(query_books)
+    cursor.execute(query_files)
+    
+    # Потвърждаване на промените
+    connection.commit()
+
+except sqlite3.Error as e:
+    print(f"Error occurred: {e}")
+
+finally:
+    # Затваряне на курсора и връзката
+    cursor.close()
+    connection.close()

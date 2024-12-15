@@ -15,6 +15,7 @@ class User:
         self.created_at = None 
         self.updated_at = None 
         self.is_active = None
+        self.is_admin = False
     
     # === Validation === #
     def is_password_valid(self):
@@ -50,6 +51,7 @@ class User:
         self.created_at = user_dict.get("created_at")
         self.updated_at = user_dict.get("updated_at")
         self.is_active = user_dict.get("is_active")
+        self.is_admin = user_dict.get("is_admin", False)
         return self 
 
     def from_json(self, user_json):
@@ -117,7 +119,8 @@ class User:
             password, 
             created_at, 
             updated_at,
-            is_active
+            is_active,
+            is_admin
         ) 
         VALUES (
             '{self.first_name}', 
@@ -129,7 +132,8 @@ class User:
             '{self.password}', 
             {self.created_at}, 
             {self.updated_at},
-            {self.is_active}
+            {self.is_active},
+            {self.is_admin}
         );""" 
         cursor = dbconnection.cursor()
         cursor.execute(query)
