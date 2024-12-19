@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    background: linear-gradient(to right, #4e342e, #8d6e63);
+    color: #f0e7db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: auto;
+}
+
+form {
+    background: #3e2723;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 26px;
+    text-align: center;
+    color: #d7ccc8;
+}
+
+h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: center;
+    color: #a1887f;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #8d6e63;
+    border-radius: 10px;
+    transition: border-color 0.3s;
+    background-color: #5d4037;
+    color: #f0e7db;
+}
+
+.prog-bar {
+    width: 100%;
+    height: 20px;
+    border: 2px solid #7d5a50;
+    border-radius: 12px;
+    background-color: #40342d;
+    appearance: none;
+}
+
+.prog-bar::-webkit-progress-bar {
+    background-color: #40342d;
+    border-radius: 12px;
+}
+
+.prog-bar::-webkit-progress-value {
+    background-color: #b89984;
+    border-radius: 12px;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #d7ccc8;
+    outline: none;
+}
+
+.button-base {
+    color: #3e2723;
+    background-color: #d7ccc8;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.button-base:hover {
+    background-color: #a1887f;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #d7ccc8;
+}
+
+a {
+    color: #d7ccc8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.account-creation {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.prog-bar {
+    width: 100%;
+}
+
+.prog-bar {
+    width: 100%;
+}
+
+.button-overlay {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #d7ccc8;
+    color: #3e2723;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 10px 0;
+}
+
+.button-overlay:hover {
+    background-color: #a1887f;
+}
+
+.video-container {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.video-container {
+    position: relative;
+}
+
+video, canvas {
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+canvas {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#cameraSquare {
+    width: 100%;
+    height: 300px;
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+#video, #canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.primary-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #d7ccc8;
+    color: #3e2723; 
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 10px 0;
+}
+
+.primary-button:hover {
+    background-color: #a1887f;
+}
+
+#fileLabel {
+    font-size: 1.5em;
+}
+
+.flash-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: none;
+    z-index: 2;
+}
+
+.next {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    background-color: #d7ccc8;
+    color: #3e2723;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.next:hover {
+    background-color: #a1887f;
+}
+
+.form-title {
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 32px;
+    color: #d7ccc8;
+}
+
+#error-message {
+    color: #ff4d4d;
+    text-align: center;
+}

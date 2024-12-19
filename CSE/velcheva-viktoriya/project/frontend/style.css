@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('images/books2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0,7);
+    z-index: 2;
+}
+
+.content {
+    position: relative;
+    color: white;
+    text-align: left;
+    padding: 100px;
+    width: 100%;
+    z-index: 5;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+p {
+    font-size: 1.5rem;
+    margin-top: 10px; 
+}
+
+.vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 70%);
+}
+
+.signup-button {
+    display: inline-block;
+    background-color: white;
+    color: darkslategrey;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px; 
+    text-decoration: none;
+    margin-top: 20px; 
+}
+
+.signup-button:hover {
+    background-color: gainsboro; 
+}
+
+.signin-link {
+    position: absolute; 
+    top: 20px; 
+    right: 20px;
+    color: white; 
+    text-decoration: underline; 
+    font-size: 1rem; 
+    z-index: 10; 
+}

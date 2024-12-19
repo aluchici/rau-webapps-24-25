@@ -1,0 +1,693 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e9dcc4;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: #333;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 20px;
+    background-color: #f8f8f8;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.top-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4b2e2e;
+    color: white;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.site-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #f3eac3;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-center {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    margin-left: 20px;
+    color: #f3eac3;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-link:hover {
+    color: #dab09c;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-bar {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #dab09c;
+    width: 250px;
+    background-color: #f3eac3;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: -1px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+}
+
+.main-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 250px;
+}
+
+#currently-reading,
+.to-be-reviewed {
+    width: 250px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.review-section, .top-10-worst-books, .to-be-reviewed {
+    flex: 1;
+    max-width: 300px;
+}
+
+.top-10-worst-books, .to-be-reviewed {
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#currently-reading .book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#currently-reading .book img {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.add-book-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background-color: #713a13;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 0px;
+}
+
+#addButton {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background-color: #713a13;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 0px;
+}
+
+.add-book-button:hover {
+    background-color: #a6744e;
+}
+
+.to-be-reviewed {
+    margin-top: 20px;
+}
+
+.to-be-reviewed h2 {
+    margin-bottom: 10px;
+}
+
+.review-book-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.review-book-list .book img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.review-section {
+    flex: 1;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 0;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.user-profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #4b2e2e;
+}
+
+.review-body {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.book-cover {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.details-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.details-container input,
+.details-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.book-details {
+    max-width: 400px;
+}
+
+.book-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4b2e2e;
+}
+
+.review-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+    white-space: normal;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.more-link {
+    color: #8b5e3c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.more-link:hover {
+    text-decoration: underline;
+}
+
+.review-footer {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.like-button, .comment-button {
+    background-color: #8b5e3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.like-button:hover, .comment-button:hover {
+    background-color: #a6744e;
+}
+
+.comment-section {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.comment-profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.action-link {
+    color: #8b5e3c;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+.book {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.book-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-title {
+    font-weight: bold;
+    color: #4b2e2e;
+}
+
+.book-author {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.top-10-worst-books {
+    flex: 0 0 250px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.top-10-worst-books .book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.top-10-worst-books .book img {
+    width: 80px;
+    height: auto;
+}
+
+.view-all-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background-color: #713a13;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 0px;
+}
+
+.view-all-button:hover {
+    background-color: #a6744e;
+}
+
+.review-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.review-section {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.currently-reading h2 {
+    margin-bottom: 15px;
+}
+
+.top-10-worst-books h2 {
+    margin-bottom: 15px;
+}
+
+.bell-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+footer {
+    width: 100%;
+    background-color: #e9dcc4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #a6744e;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.like-link {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.like-link:hover {
+    text-decoration: underline;
+}
+
+.thumb-icon {
+    width: 17px;
+}
+
+.thumb-icon {
+    width: 17px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.like-count {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.button-container button {
+    background-color: #8B4513;
+    color: #FFF;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+    background-color: #A0522D;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal.show {
+    display: block;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+  
+.modal-content img {
+    display: block;
+    margin: 0 auto 10px;
+    width: 100px;
+    height: auto;
+}
+  
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #A0522D;
+    color: white;
+    cursor: pointer;
+}
+  
+.modal-buttons button:first-child {
+    background-color: #A0522D;
+    color: white;
+}
+  
+.modal-buttons button:last-child {
+    background-color: #A0522D;
+    color: white;
+}
+  
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#modal-book-cover {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#book-review {
+    height: 150px;
+    resize: none;
+    font-size: 14px;
+}
+
+.modal-buttons button:hover {
+    background-color: #8B4513;
+}
+
+#discardReviewButton,
+#addReviewButton {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    background-color: #713a13;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 0px;
+}
+
+#reviews-container {
+    display: flex;
+    flex-direction: column; /* Подрежда ревютата вертикално */
+    gap: 20px; /* Разстояние между ревютата */
+}
+
+.review-section {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Ограничаваме ширината на всяко ревю */
+    margin: 0 auto; /* Центрираме ревютата */
+}
+
+/* Стил за менюто с опциите */
+.review-header .options-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative; /* За да може абсолютно позициониране да работи */
+    width: 100%; /* За да заемем цялото пространство на контейнера */
+}
+
+/* Стил за иконата с трите точки */
+.review-header .three-dots {
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute; /* Абсолютно позициониране спрямо родителския контейнер */
+    top: 0; /* Поставяме я горе */
+    right: 0; /* И я поставяме плътно вдясно */
+    padding: 5px; /* Малко разстояние около иконата */
+}
+
+/* Стил за самата опция за изтриване */
+.delete-option {
+    display: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: #5d4037; /* Тъмнокафяв текст */
+    padding: 5px 10px;
+    background-color: #f1f1f1; /* Мръсно бял фон */
+    border-radius: 5px;
+    text-align: center;
+    white-space: nowrap;
+    position: absolute;
+    top: 25px; /* Поставяме опцията под трите точки */
+    right: 0; /* За да бъде точно под тях */
+    z-index: 10; /* За да бъде над останалото съдържание */
+}
+
+/* Стил при ховърване */
+.delete-option:hover {
+    background-color: #e0e0e0; /* Леко потъмнява при ховърване */
+    color: #3e2723; /* Потъмняващ текст при ховър */
+}
+
+.book {
+    position: relative; /* За да се позиционира delete-button спрямо тази книга */
+}
+
+.delete-button {
+    position: absolute;
+    top: 5px; /* Разстояние от горния ръб на книгата */
+    right: 5px; /* Разстояние от десния ръб на книгата */
+    background: none;
+    border: none;
+    color: #5a3e36; /* Тъмнокафяво */
+    font-size: 14px; /* Размер на текста */
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #e6e6e6; /* Мръсно бяло при задържане на курсора */
+}

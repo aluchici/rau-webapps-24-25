@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/frontend/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="top-navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="./images/B.png" alt="Badreads Logo">
+            </div>
+            <h1 class="site-name">Badreads</h1>
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">My Books</a>
+        </div>
+        <div class="nav-center">
+            <form class="search-container" onsubmit="return false;">
+                <input type="text" placeholder="Search books..." class="search-bar">
+                <button type="submit" class="search-button">
+                    <img src="./images/01-magnifying-glass.png" alt="Search Icon" class="search-icon">
+                </button>
+            </form>
+        </div>
+        <div class="profile-container">
+            <img src="./images/bell.png" alt="Bell icon" class="bell-icon">
+            <img src="./images/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg" alt="Profile Icon" class="profile-icon">
+        </div>
+    </nav>     
+
+    <div class="main-content">
+        <div class="left-column">
+            <div id="currently-reading">
+                <h2>Currently Reading</h2>
+                <div class="book-list" id="book-list">
+                    <div id="noBooksMessage" style="display: none;">No added books</div>
+                    <div class="book">
+                        <img src="./images/_-_-_-_9789542845546_1.jpg" alt="Book 1 Cover">
+                        <div class="book-details">
+                            <p class="book-title">Iron Flame</p>
+                            <p class="book-author">by Rebecca Yaros</p>
+                        </div>
+                    </div>
+                    <div class="book">
+                        <img src="./images/1090.max.jpg" alt="Book 2 Cover">
+                        <div class="book-details">
+                            <p class="book-title">Iron Candlestick</p>
+                            <p class="book-author">by Dimitar Talev</p>
+                        </div>
+                    </div>
+                </div>
+            <button id="addButton" onclick="openModal()">Add a new book</button>
+            </div>
+
+            <div id="addBookModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="cover-container">
+                        <div id="coverPreview" class="cover" style="width: 80px; height: 120px; background-color: #f0f0f0;">
+                            Add a cover image
+                        </div>
+                        <input type="file" id="bookCoverInput" accept="image/*" style="display:none;">
+                        <div class="input-container">
+                            <input type="text" id="bookTitle" placeholder="Book Title">
+                            <input type="text" id="bookAuthor" placeholder="Author">
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button id="discardButton">Discard</button>
+                        <button id="modalAddButton">Add</button>
+                    </div>
+                </div>        
+            </div>
+            
+            <div class="to-be-reviewed">
+                <h2>To Be Reviewed</h2>
+                <div class="review-book-list">
+                    <div class="book" id="book1">
+                        <img src="./images/214661_b.jpg" alt="Book 3 Cover">
+                    </div>
+                    <div class="book">
+                        <img src="./images/48855133.jpg" alt="Book 4 Cover">
+                    </div>
+                    <div class="book">
+                        <img src="./images/97895427050171520426934.6255.jpg" alt="Book 5 Cover">
+                    </div>
+                    <div class="book">
+                        <img src="./images/prespanskite-kambani.jpg" alt="Book 6 Cover">
+                    </div>
+                    <div class="book">
+                        <img src="./images/skandalniat-zhivot-na-evelin-hiugo.jpg" alt="Book 7 Cover">
+                    </div>
+                    <div class="book">
+                        <img src="./images/uravnenieto-na-dzheymi-dreyk-30.jpg" alt="Book 8 Cover">
+                    </div>
+                </div>
+                <button class="add-book-button">View all books</button>
+            </div>
+        </div>
+
+        <div id="review-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <img id="modal-book-cover" src="" alt="Book Cover" />
+                    <div class="details-container">
+                        <input type="text" id="book-Title" placeholder="Enter title" required/>
+                        <input type="text" id="book-Author" placeholder="Enter author" required/>
+                        <textarea id="book-review" placeholder="Write your review" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button id="discardReviewButton">Discard</button>
+                    <button id="addReviewButton">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-container">
+            <div id="reviews-container">
+                <!-- Existing reviews go here -->
+            </div>
+            <div class="review-section" id="review1">
+                <div class="review-header">
+                    <img src="./images/Woman_at_Lover's_Bridge_Tanjung_Sepat_(cropped).jpg" alt="User Profile" class="user-profile">
+                    <span class="user-name">Anne James</span>
+                </div>
+                <div class="review-body">
+                    <img src="./images/61N-UOA0alL._UF1000,1000_QL80_.jpg" alt="Book Cover" class="book-cover">
+                    <div class="book-details">
+                        <h3 class="book-title">Jane Eyre</h3>
+                        <p class="review-text">
+                            'The book was so bad I couldn't even finish it...'
+                            <a href="#" class="more-link">More...</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="review-footer">
+                    <span class="like-count" style="display: none;">
+                        <img src="./images/25297.png" alt="Thumbs Up" class="thumb-icon">
+                        <span class="like-number">1</span>
+                    </span>
+                    <a href="#" class="action-link like-link" onclick="likeReview(this)">Like</a>
+                    <a href="#" class="action-link">Comment</a>
+                </div>                                     
+                <div class="comment-section">
+                    <img src="./images/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg" alt="Your Profile" class="comment-profile">
+                    <input type="text" placeholder="Leave a comment..." class="comment-input">
+                </div>
+            </div>
+        
+            <div class="review-section">
+                <div class="review-header">
+                    <img src="./images/pexels-olly-733872.jpg" alt="User Profile" class="user-profile">
+                    <span class="user-name">Margaret Johnes</span>
+                </div>
+                <div class="review-body">
+                    <img src="./images/71OZY035QKL._AC_UF1000,1000_QL80_.jpg" alt="Book Cover" class="book-cover">
+                    <div class="book-details">
+                        <h3 class="book-title">The Little Prince</h3>
+                        <p class="review-text">
+                            'I didn't quite get what the hype is about...'
+                            <a href="#" class="more-link">More...</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="review-footer">
+                    <span class="like-count" style="display: none;">
+                        <img src="./images/25297.png" alt="Thumbs Up" class="thumb-icon">
+                        <span class="like-number">1</span>
+                    </span>
+                    <a href="#" class="action-link like-link" onclick="likeReview(this)">Like</a>
+                    <a href="#" class="action-link">Comment</a>
+                </div>        
+                <div class="comment-section">
+                    <img src="./images/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg" alt="Your Profile" class="comment-profile">
+                    <input type="text" placeholder="Leave a comment..." class="comment-input">
+                </div>
+            </div>
+        
+            <div class="review-section">
+                <div class="review-header">
+                    <img src="./images/c0749b7cc401421662ae901ec8f9f660.jpg" alt="User Profile" class="user-profile">
+                    <span class="user-name">Anonymous</span>
+                </div>
+                <div class="review-body">
+                    <img src="./images/1683720189-0.jpeg" alt="Book Cover" class="book-cover">
+                    <div class="book-details">
+                        <h3 class="book-title">Rich Dad, Poor Dad</h3>
+                        <p class="review-text">
+                            'The most unnecessary book ever...'
+                            <a href="#" class="more-link">More...</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="review-footer">
+                    <span class="like-count" style="display: none;">
+                        <img src="./images/25297.png" alt="Thumbs Up" class="thumb-icon">
+                        <span class="like-number">1</span>
+                    </span>
+                    <a href="#" class="action-link like-link" onclick="likeReview(this)">Like</a>
+                    <a href="#" class="action-link">Comment</a>
+                </div>        
+                <div class="comment-section">
+                    <img src="./images/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg" alt="Your Profile" class="comment-profile">
+                    <input type="text" placeholder="Leave a comment..." class="comment-input">
+                </div>
+            </div>
+
+            <div class="review-section">
+                <div class="review-header">
+                    <img src="./images/Outdoors-man-portrait_(cropped).jpg" alt="User Profile" class="user-profile">
+                    <span class="user-name">John Dimitrov</span>
+                </div>
+                <div class="review-body">
+                    <img src="./images/51mVxLPBgzL._AC_UF1000,1000_QL80_.jpg" alt="Book Cover" class="book-cover">
+                    <div class="book-details">
+                        <h3 class="book-title">The Bible</h3>
+                        <p class="review-text">
+                            'Ummmm...'
+                            <a href="#" class="more-link">More...</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="review-footer">
+                    <span class="like-count" style="display: none;">
+                        <img src="./images/25297.png" alt="Thumbs Up" class="thumb-icon">
+                        <span class="like-number">1</span>
+                    </span>
+                    <a href="#" class="action-link like-link" onclick="likeReview(this)">Like</a>
+                    <a href="#" class="action-link">Comment</a>
+                </div>        
+                <div class="comment-section">
+                    <img src="./images/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg" alt="Your Profile" class="comment-profile">
+                    <input type="text" placeholder="Leave a comment..." class="comment-input">
+                </div>
+            </div>
+        </div>        
+
+        <div class="top-10-worst-books">
+            <h2>Top 10 Worst Books</h2>
+            <div class="book-list">
+                <div class="book">
+                    <img src="./images/hopeless-9781476743554_hr.jpg" alt="Worst Book 1 Cover">
+                    <div class="book-details">
+                        <p class="book-title">Hopeless</p>
+                        <p class="book-author">by Colleen Hoover</p>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="./images/27362503.jpg" alt="Worst Book 2 Cover">
+                    <div class="book-details">
+                        <p class="book-title">It ends with us</p>
+                        <p class="book-author">by Colleen Hoover</p>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="./images/71L5vWJf6JL._AC_UF1000,1000_QL80_.jpg" alt="Worst Book 3 Cover">
+                    <div class="book-details">
+                        <p class="book-title">All your perfects</p>
+                        <p class="book-author">by Colleen Hoover</p>
+                    </div>
+                </div>
+            </div>
+            <button class="view-all-button">View all 10 books</button>
+        </div>
+    </div>
+
+    <script src="home.js"></script>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        </div>
+    </footer>    
+</body>
+</html>
